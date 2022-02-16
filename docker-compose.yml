@@ -1,0 +1,65 @@
+services:
+  gps:
+    build : ./Gps/.
+    image: gps
+    container_name: tourguide-gps
+    environment:
+      GPS_URL: http://tourguide-gps:8081/gps
+      PRICER_URL: http://tourguide-pricer:8084/pricer
+      REWARD_URL: http://tourguide-rewards:8083/rewards
+      USER_URL: http://tourguide-users:8082/user
+    ports:
+      - 8081:8081
+
+  rewards:
+    build : ./Rewards/.
+    image: rewards
+    container_name: tourguide-rewards
+    environment:
+      GPS_URL: http://tourguide-gps:8081/gps
+      PRICER_URL: http://tourguide-pricer:8084/pricer
+      REWARD_URL: http://tourguide-rewards:8083/rewards
+      USER_URL: http://tourguide-users:8082/user
+    ports:
+      - 8083:8083
+
+  pricer:
+    build: ./Pricer/.
+    image: pricer
+    container_name: tourguide-pricer
+    environment:
+      GPS_URL: http://tourguide-gps:8081/gps
+      PRICER_URL: http://tourguide-pricer:8084/pricer
+      REWARD_URL: http://tourguide-rewards:8083/rewards
+      USER_URL: http://tourguide-users:8082/user
+    ports:
+      - 8084:8084
+
+  user:
+    build: ./User/.
+    image: user
+    container_name: tourguide-users
+    environment:
+      GPS_URL: http://tourguide-gps:8081/gps
+      PRICER_URL: http://tourguide-pricer:8084/pricer
+      REWARD_URL: http://tourguide-rewards:8083/rewards
+      USER_URL: http://tourguide-users:8082/user
+    ports:
+      - 8082:8082
+
+  tourguide:
+    build: ./TourGuideMain/.
+    container_name: tourguide-main
+    depends_on:
+      - gps
+      - rewards
+      - pricer
+      - user
+    image: tourguidemain
+    environment:
+      GPS_URL: http://tourguide-gps:8081/gps
+      PRICER_URL: http://tourguide-pricer:8084/pricer
+      REWARD_URL: http://tourguide-rewards:8083/rewards
+      USER_URL: http://tourguide-users:8082/user
+    ports:
+      - 8080:8080

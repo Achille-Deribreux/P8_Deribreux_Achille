@@ -1,0 +1,33 @@
+plugins {
+    id 'java'
+}
+apply plugin: 'jacoco'
+jacoco {
+    toolVersion = "0.8.2"
+}
+
+version 'unspecified'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation name: 'TripPricer'
+    implementation 'org.projectlombok:lombok:1.18.22'
+    implementation 'junit:junit:4.13.2'
+    implementation 'org.springframework.boot:spring-boot-starter-test:2.6.3'
+    compile group: 'org.javamoney', name: 'moneta', version: '1.3'
+    implementation group: 'io.springfox', name: 'springfox-swagger2', version: '2.9.2'
+    implementation group: 'org.springdoc', name: 'springdoc-openapi-ui', version: '1.6.6'
+}
+
+test {
+    useJUnitPlatform()
+    finalizedBy jacocoTestReport
+}
+
+jacocoTestReport {
+    dependsOn test // tests are required to run before generating the report
+}

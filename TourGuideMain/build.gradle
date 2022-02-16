@@ -1,0 +1,99 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:2.1.6.RELEASE")
+    }
+}
+
+def libsPath = "${projectDir}/libs"
+
+subprojects {
+
+    apply plugin: 'java'
+    apply plugin: 'org.springframework.boot'
+    apply plugin: 'io.spring.dependency-management'
+    sourceCompatibility = JavaVersion.VERSION_11
+    targetCompatibility = JavaVersion.VERSION_11
+
+    repositories {
+        mavenCentral()
+        flatDir {
+            dirs "${libsPath}"
+        }
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+apply plugin: "jacoco"
+
+
+bootJar {
+    baseName = 'tourGuide'
+    version =  '1.0.0'
+}
+
+repositories {
+    mavenCentral()
+    flatDir {
+        dirs 'libs'
+    }
+}
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.projectlombok:lombok:1.18.22'
+    implementation 'org.junit.jupiter:junit-jupiter:5.8.2'
+    implementation 'org.springframework.boot:spring-boot-starter-test:2.6.3'
+    implementation 'junit:junit:4.13.2'
+    compile("org.springframework.boot:spring-boot-starter-web")
+    compile("org.springframework.boot:spring-boot-starter-actuator")
+    compile group: 'org.javamoney', name: 'moneta', version: '1.3'
+    compile group: 'com.jsoniter', name: 'jsoniter', version: '0.9.23'
+    implementation group: 'io.springfox', name: 'springfox-swagger2', version: '2.9.2'
+    implementation group: 'org.springdoc', name: 'springdoc-openapi-ui', version: '1.6.6'
+
+    compile(name:'gpsUtil', ext:'jar')
+    compile(name:'RewardCentral', ext:'jar')
+    compile(name:'TripPricer', ext:'jar')
+
+    testCompile("junit:junit")
+    testCompile group: 'org.springframework.boot', name: 'spring-boot-starter-test', version: '2.6.3'
+}
+
+
+test {
+    useJUnitPlatform()
+    finalizedBy jacocoTestReport
+}
+
+
+jacoco {
+    toolVersion = "0.8.2"
+}
+
+jacocoTestReport {
+    dependsOn test // tests are required to run before generating the report
+}
+
+check.dependsOn jacocoTestCoverageVerification
+
+jacocoTestCoverageVerification {
+    violationRules {
+        rule {
+            limit {
+                counter = 'LINE'
+                value = 'COVEREDRATIO'
+                minimum = 0.5
+            }
+        }
+    }
+}
