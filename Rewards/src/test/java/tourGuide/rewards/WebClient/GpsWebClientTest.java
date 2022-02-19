@@ -16,7 +16,7 @@ import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.RestTemplate;
-import tourGuide.rewards.Entity.Attraction;
+import com.con.Entity.Attraction;
 import tourGuide.rewards.TestUtils.Data;
 
 import java.util.List;

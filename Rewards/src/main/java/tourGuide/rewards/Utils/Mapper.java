@@ -1,10 +1,8 @@
 package tourGuide.rewards.Utils;
 
 import org.javamoney.moneta.Money;
-import tourGuide.rewards.DTO.UserDTO;
-import tourGuide.rewards.DTO.UserPreferencesDTO;
-import tourGuide.rewards.Entity.User;
-import tourGuide.rewards.Entity.UserPreferences;
+import com.con.DTO.*;
+import com.con.Entity.*;
 
 import javax.money.Monetary;
 

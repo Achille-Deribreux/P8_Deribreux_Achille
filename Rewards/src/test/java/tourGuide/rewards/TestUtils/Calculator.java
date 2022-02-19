@@ -1,6 +1,6 @@
 package tourGuide.rewards.TestUtils;
 
-import tourGuide.rewards.Entity.Location;
+import com.con.Entity.Location;
 
 public class Calculator {
     public static double getDistance(Location loc1, Location loc2) {

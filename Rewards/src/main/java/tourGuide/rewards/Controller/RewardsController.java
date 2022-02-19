@@ -1,5 +1,8 @@
 package tourGuide.rewards.Controller;
 
+import com.con.DTO.UserDTO;
+import com.con.Entity.User;
+import com.con.Entity.UserReward;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,9 +10,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import tourGuide.rewards.DTO.UserDTO;
-import tourGuide.rewards.Entity.User;
-import tourGuide.rewards.Entity.UserReward;
 import tourGuide.rewards.Service.RewardsService;
 import tourGuide.rewards.Utils.Mapper;
 

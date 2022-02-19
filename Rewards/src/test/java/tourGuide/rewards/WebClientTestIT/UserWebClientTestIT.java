@@ -4,15 +4,11 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.InjectMocks;
-import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.http.*;
-import tourGuide.rewards.Entity.Location;
-import tourGuide.rewards.Entity.UserReward;
-import tourGuide.rewards.Entity.VisitedLocation;
+import com.con.Entity.*;
 import tourGuide.rewards.TestUtils.Data;
 import tourGuide.rewards.WebClient.UserWebClient;
 

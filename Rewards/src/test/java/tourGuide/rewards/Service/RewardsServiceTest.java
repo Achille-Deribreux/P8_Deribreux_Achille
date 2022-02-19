@@ -8,14 +8,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import rewardCentral.RewardCentral;
-import tourGuide.rewards.Entity.*;
-import tourGuide.rewards.TestUtils.Calculator;
+import com.con.Entity.*;
 import tourGuide.rewards.TestUtils.Data;
 import tourGuide.rewards.WebClient.GpsWebClient;
 import tourGuide.rewards.WebClient.UserWebClient;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 @SpringBootTest

@@ -5,7 +5,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import rewardCentral.RewardCentral;
-import tourGuide.rewards.Entity.*;
+import com.con.Entity.*;
 import tourGuide.rewards.Utils.DistanceCalculator;
 import tourGuide.rewards.WebClient.GpsWebClient;
 import tourGuide.rewards.WebClient.UserWebClient;

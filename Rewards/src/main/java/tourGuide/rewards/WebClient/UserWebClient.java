@@ -10,7 +10,7 @@ import org.springframework.http.RequestEntity;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
-import tourGuide.rewards.Entity.UserReward;
+import com.con.Entity.UserReward;
 
 
 import java.net.URI;

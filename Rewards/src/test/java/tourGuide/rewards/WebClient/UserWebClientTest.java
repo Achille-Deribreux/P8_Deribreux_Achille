@@ -10,7 +10,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.*;
 import org.springframework.web.client.RestTemplate;
-import tourGuide.rewards.Entity.UserReward;
+import com.con.Entity.UserReward;
 
 import java.net.URI;
 import java.net.URISyntaxException;
