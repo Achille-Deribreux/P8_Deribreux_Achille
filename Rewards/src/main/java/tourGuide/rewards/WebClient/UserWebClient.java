@@ -27,7 +27,7 @@ public class UserWebClient {
     private final String USER_NAME = "?userName=";
 
     @Autowired
-    RestTemplate restTemplate;
+    private RestTemplate restTemplate;
 
     public void setBASE_URL_LOCALHOST_USER(String BASE_URL_LOCALHOST_USER) {
         this.BASE_URL_LOCALHOST_USER = BASE_URL_LOCALHOST_USER;

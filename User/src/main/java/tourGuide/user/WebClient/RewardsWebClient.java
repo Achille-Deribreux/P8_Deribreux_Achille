@@ -27,7 +27,7 @@ public class RewardsWebClient {
     private final String PATH_CALCULATE_REWARDS = "/calculateRewards";
 
     @Autowired
-    RestTemplate restTemplate;
+    private RestTemplate restTemplate;
 
     public void setBASE_URL_LOCALHOST_REWARDS(String BASE_URL_LOCALHOST_REWARDS) {
         this.BASE_URL_LOCALHOST_REWARDS = BASE_URL_LOCALHOST_REWARDS;

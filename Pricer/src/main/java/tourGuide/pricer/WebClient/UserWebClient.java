@@ -29,7 +29,7 @@ public class UserWebClient {
     }
 
     @Autowired
-    RestTemplate restTemplate;
+    private RestTemplate restTemplate;
 
     /**
      * This method send the tripdeals to the user MS.
