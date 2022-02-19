@@ -4,14 +4,15 @@ import java.util.Objects;
 import java.util.UUID;
 
 public class Attraction {
-     public UUID attractionId;
-     public String attractionName;
-     String city;
-     String state;
-     double latitude;
-     double longitude;
+     private UUID attractionId;
+     private String attractionName;
+     private String city;
+     private String state;
+     private double latitude;
+     private double longitude;
 
      public Attraction() {
+          // empty constructor
      }
 
      public UUID getAttractionId() {

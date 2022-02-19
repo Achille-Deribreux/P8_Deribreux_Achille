@@ -8,7 +8,7 @@ import java.util.Date;
 import java.util.UUID;
 
 @SpringBootTest
-public class VisitedLocationTest {
+class VisitedLocationTest {
 
     @Test
     void visitedLocationGetterAndSetterTest() {

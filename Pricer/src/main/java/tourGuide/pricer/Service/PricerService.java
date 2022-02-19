@@ -5,7 +5,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import tourGuide.pricer.Entity.Provider;
-import tourGuide.pricer.Entity.User;
 import tourGuide.pricer.Utils.Mapper;
 import tourGuide.pricer.WebClient.UserWebClient;
 import tripPricer.TripPricer;
@@ -22,10 +21,10 @@ public class PricerService {
     // Database connection will be used for external users, but for testing purposes internal users are provided and stored in memory
     private static final String tripPricerApiKey = "test-server-api-key";
 
-    TripPricer tripPricer = new TripPricer();
+    private TripPricer tripPricer = new TripPricer();
 
     @Autowired
-    UserWebClient userWebClient;
+    private UserWebClient userWebClient;
 
     /**
      * Setter for tripPricer

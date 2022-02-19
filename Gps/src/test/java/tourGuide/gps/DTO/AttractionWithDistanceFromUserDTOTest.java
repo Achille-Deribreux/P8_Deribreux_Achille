@@ -6,7 +6,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import tourGuide.gps.Entity.Attraction;
 
 @SpringBootTest
-public class AttractionWithDistanceFromUserDTOTest {
+class AttractionWithDistanceFromUserDTOTest {
 
     @Test
     void attractionSetterAndGetterTest() {

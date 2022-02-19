@@ -1,6 +1,5 @@
 package tourGuide.pricer.Controller;
 
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +17,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @WebMvcTest(PricerController.class)
-public class PricerControllerTest {
+class PricerControllerTest {
 
     @Autowired
     MockMvc mockMvc;

@@ -18,7 +18,7 @@ import java.util.UUID;
 import static org.mockito.Mockito.doNothing;
 
 @SpringBootTest
-public class PricerServiceTest {
+class PricerServiceTest {
 
     @Autowired
     PricerService pricerService;

@@ -6,11 +6,12 @@ import java.util.UUID;
 
 
 public class VisitedLocation {
-    public UUID userId;
-    public Location location;
-    public Date timeVisited;
+    private UUID userId;
+    private Location location;
+    private Date timeVisited;
 
     public VisitedLocation() {
+        //Empty constructor
     }
 
     public UUID getUserId() {

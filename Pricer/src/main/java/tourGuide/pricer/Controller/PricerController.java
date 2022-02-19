@@ -5,7 +5,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import tourGuide.pricer.Entity.Provider;
-import tourGuide.pricer.Entity.User;
 import tourGuide.pricer.Service.PricerService;
 
 import java.net.URISyntaxException;
@@ -17,9 +16,9 @@ import java.util.UUID;
 public class PricerController {
 
     @Autowired
-    PricerService pricerService;
+    private PricerService pricerService;
 
-    private Logger logger = LoggerFactory.getLogger(PricerController.class);
+    private final Logger logger = LoggerFactory.getLogger(PricerController.class);
 
     /**
      * This method answer to a get request at /getTripDeals

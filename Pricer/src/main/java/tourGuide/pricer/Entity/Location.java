@@ -4,10 +4,11 @@ import java.util.Objects;
 
 
 public class Location {
-    public double longitude;
-    public double latitude;
+    private double longitude;
+    private double latitude;
 
     public Location() {
+        // empty constructor
     }
 
     public double getLongitude() {

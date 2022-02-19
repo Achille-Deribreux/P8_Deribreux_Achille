@@ -6,7 +6,6 @@ import gpsUtil.location.VisitedLocation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
-import tourGuide.gps.Controller.GpsController;
 import tourGuide.gps.DTO.AttractionWithDistanceFromUserDTO;
 import tourGuide.gps.DTO.NearbyAttractionsDTO;
 import tourGuide.gps.Entity.Location;

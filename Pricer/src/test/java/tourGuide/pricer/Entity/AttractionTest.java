@@ -7,7 +7,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import java.util.UUID;
 
 @SpringBootTest
-public class AttractionTest {
+class AttractionTest {
 
     @Test
     void attractionGetterAndSetterTest() {

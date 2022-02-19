@@ -1,6 +1,5 @@
 package tourGuide.gps.Service;
 
-import com.google.common.base.Verify;
 import gpsUtil.GpsUtil;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -22,12 +21,10 @@ import java.util.List;
 import java.util.UUID;
 import java.util.stream.Collectors;
 
-import static org.junit.Assert.assertArrayEquals;
-import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.verify;
 
 @SpringBootTest
-public class GpsServiceTest {
+class GpsServiceTest {
 
     @MockBean
     GpsUtil gpsUtil;

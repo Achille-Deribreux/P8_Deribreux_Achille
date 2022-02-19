@@ -1,25 +1,15 @@
 package tourGuide.pricer.Entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
 import java.util.Objects;
 
 
 public class UserReward {
-     public VisitedLocation visitedLocation;
-     public Attraction attraction;
-     int rewardPoints;
-
-     public UserReward(VisitedLocation visitedLocation, Attraction attraction, int rewardPoints) {
-          this.visitedLocation = visitedLocation;
-          this.attraction = attraction;
-          this.rewardPoints = rewardPoints;
-     }
+     private VisitedLocation visitedLocation;
+     private Attraction attraction;
+     private int rewardPoints;
 
      public UserReward() {
+          //Empty constructor
      }
 
      public VisitedLocation getVisitedLocation() {

@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.UUID;
 
 @SpringBootTest
-public class UserTest {
+class UserTest {
 
     @Test
     void userGetterAndSetterTest() {

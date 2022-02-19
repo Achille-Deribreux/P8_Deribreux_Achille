@@ -18,6 +18,7 @@ public class User {
 
 
     public User() {
+        // Empty constructor
     }
 
     public void setUserId(UUID userId) {
@@ -81,7 +82,7 @@ public class User {
     }
 
     public void addUserReward(UserReward userReward) {
-        if(userRewards.stream().filter(r -> !r.attraction.attractionName.equals(userReward.attraction)).count() == 0) {
+        if(userRewards.stream().filter(r -> !r.getAttraction().getAttractionName().equals(userReward.getAttraction())).count() == 0) {
             userRewards.add(userReward);
         }
     }

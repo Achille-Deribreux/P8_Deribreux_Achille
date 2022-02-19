@@ -17,7 +17,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 @WebMvcTest(GpsController.class)
-public class GpsControllerTest {
+class GpsControllerTest {
 
     @Autowired
     MockMvc mockMvc;

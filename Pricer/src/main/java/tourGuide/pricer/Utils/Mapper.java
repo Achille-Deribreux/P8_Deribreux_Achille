@@ -7,6 +7,10 @@ import java.util.List;
 
 public class Mapper {
 
+    private Mapper() {
+        //Empty constructor
+    }
+
     /**
      * Method who convert a List<tripPricer.Provider> to a Entity.List<Provider>
      * @param providerList List<tripPricer.Provider>

@@ -17,7 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @SpringBootTest
-public class UserWebClientTest {
+class UserWebClientTest {
 
     @Mock
     private RestTemplate restTemplate;
@@ -33,7 +33,7 @@ public class UserWebClientTest {
 
     @BeforeEach
     void setUp() {
-        userWebClient.setBASE_URL_LOCALHOST_user(BASE_URL_LOCALHOST_user);
+        userWebClient.setBASE_URL_LOCALHOST_USER(BASE_URL_LOCALHOST_user);
     }
 
     @Test

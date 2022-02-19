@@ -9,7 +9,7 @@ import javax.money.CurrencyUnit;
 import javax.money.Monetary;
 
 @SpringBootTest
-public class UserPreferencesTest {
+class UserPreferencesTest {
 
     @Test
     void userPreferencesGetterAndSetterTest() {

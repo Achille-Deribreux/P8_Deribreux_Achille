@@ -16,7 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @SpringBootTest
-public class UserWebClientTestIT {
+class UserWebClientTestIT {
 
     //@Value("${tourguide.main.userurl}")
     private String BASE_URL_LOCALHOST_user  = "http://localhost:8082/user";
@@ -28,7 +28,7 @@ public class UserWebClientTestIT {
 
     @BeforeEach
     void setUp() {
-        userWebClient.setBASE_URL_LOCALHOST_user(BASE_URL_LOCALHOST_user);
+        userWebClient.setBASE_URL_LOCALHOST_USER(BASE_URL_LOCALHOST_user);
     }
 
     @Test
@@ -46,6 +46,6 @@ public class UserWebClientTestIT {
         ResponseEntity<Void> response = testRestTemplate.exchange(BASE_URL_LOCALHOST_user + PATH_ADD_USER_TRIPDEALS + USER_NAME + userName,
                 HttpMethod.POST, request, void.class);
         //Then
-        Assertions.assertEquals(response.getStatusCode(),HttpStatus.OK);
+        Assertions.assertEquals(HttpStatus.OK, response.getStatusCode());
     }
 }

@@ -1,10 +1,5 @@
 package tourGuide.pricer.Entity;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 import org.javamoney.moneta.Money;
 
 import javax.money.CurrencyUnit;
@@ -23,6 +18,7 @@ public class UserPreferences {
     private int numberOfChildren = 0;
 
     public UserPreferences() {
+        //Empty constructor
     }
 
     public void setAttractionProximity(int attractionProximity) {
