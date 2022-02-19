@@ -1,6 +1,6 @@
 package tourGuide.pricer.Utils;
 
-import tourGuide.pricer.Entity.Provider;
+import com.con.Entity.Provider;
 
 import java.util.ArrayList;
 import java.util.List;

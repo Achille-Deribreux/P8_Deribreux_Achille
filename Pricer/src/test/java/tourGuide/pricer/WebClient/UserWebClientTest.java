@@ -1,5 +1,6 @@
 package tourGuide.pricer.WebClient;
 
+import com.con.Entity.Provider;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -10,7 +11,6 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.*;
 import org.springframework.web.client.RestTemplate;
-import tourGuide.pricer.Entity.Provider;
 
 import java.net.URI;
 import java.net.URISyntaxException;

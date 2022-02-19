@@ -1,5 +1,6 @@
 package tourGuide.pricer.WebClientTestIT;
 
+import com.con.Entity.Provider;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
@@ -8,7 +9,6 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.http.*;
-import tourGuide.pricer.Entity.Provider;
 import tourGuide.pricer.WebClient.UserWebClient;
 
 import java.net.URI;

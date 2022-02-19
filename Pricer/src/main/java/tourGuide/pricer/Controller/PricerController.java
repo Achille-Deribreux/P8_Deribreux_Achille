@@ -1,10 +1,10 @@
 package tourGuide.pricer.Controller;
 
+import com.con.Entity.Provider;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import tourGuide.pricer.Entity.Provider;
 import tourGuide.pricer.Service.PricerService;
 
 import java.net.URISyntaxException;

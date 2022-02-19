@@ -1,10 +1,10 @@
 package tourGuide.pricer.Service;
 
+import com.con.Entity.Provider;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import tourGuide.pricer.Entity.Provider;
 import tourGuide.pricer.Utils.Mapper;
 import tourGuide.pricer.WebClient.UserWebClient;
 import tripPricer.TripPricer;
@@ -52,7 +52,7 @@ public class PricerService {
      * @param rewardsPoints number of  earned rewardsPoints
      * @return A list of TripDeals (providers) adapted to the user
      */
-    public List<Provider> getTripDeals(String username,UUID attractionId, int adults, int children, int nightsStay, int rewardsPoints) throws URISyntaxException {
+    public List<Provider> getTripDeals(String username, UUID attractionId, int adults, int children, int nightsStay, int rewardsPoints) throws URISyntaxException {
         logger.info("generate tripdeals for user : "+username);
         List<Provider> tripDeals =  Mapper.mapToEntityProvider(tripPricer.getPrice(tripPricerApiKey, attractionId, adults,children,nightsStay, rewardsPoints));
         userWebClient.addTripDeals(username, tripDeals);
