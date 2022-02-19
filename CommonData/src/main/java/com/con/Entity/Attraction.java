@@ -96,7 +96,7 @@ public class Attraction {
           if (this == o) return true;
           if (o == null || getClass() != o.getClass()) return false;
           Attraction that = (Attraction) o;
-          return Double.compare(that.longitude, longitude) == 0 && Double.compare(that.latitude, latitude) == 0 && Objects.equals(attractionName, that.attractionName) && Objects.equals(city, that.city) && Objects.equals(state, that.state) && Objects.equals(attractionId, that.attractionId);
+          return Double.compare(that.longitude, longitude) == 0 && Double.compare(that.latitude, latitude) == 0 && Objects.equals(attractionName, that.attractionName) && Objects.equals(city, that.city) && Objects.equals(state, that.state);
      }
 
      @Override
