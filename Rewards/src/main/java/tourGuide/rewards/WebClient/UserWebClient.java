@@ -3,6 +3,7 @@ package tourGuide.rewards.WebClient;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
 import org.springframework.http.RequestEntity;
@@ -19,8 +20,8 @@ import java.net.URISyntaxException;
 public class UserWebClient {
     private Logger logger = LoggerFactory.getLogger(UserWebClient.class);
 
-    //@Value("${tourguide.main.userurl}")
-    private String BASE_URL_LOCALHOST_USER = "http://tourguide-users:8082/user";
+    @Value("${tourguide.main.userurl}")
+    private String BASE_URL_LOCALHOST_USER;
     //Declare the path to addUserReward
     private final String PATH_ADD_USER_REWARD = "/addUserReward";
     //Declare userName param

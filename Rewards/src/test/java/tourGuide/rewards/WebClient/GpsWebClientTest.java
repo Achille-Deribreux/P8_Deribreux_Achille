@@ -1,5 +1,6 @@
 package tourGuide.rewards.WebClient;
 
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Assertions;
@@ -29,9 +30,17 @@ class GpsWebClientTest {
     @InjectMocks
     GpsWebClient gpsWebClient = new GpsWebClient();
 
-    //@Value("${tourguide.main.gpsurl}")
-    private String BASE_URL_LOCALHOST_GPS = "http://localhost:8081/gps";
+    @Value("${tourguide.main.gpsurl}")
+    private String BASE_URL_LOCALHOST_GPS;
     private final String PATH_GET_ALL_ATTRACTIONS = "/getAllAttractions";
+
+    @BeforeAll
+    static void setUpBeforeAll() {
+        System.setProperty("GPS_URL","http://localhost:8081/gps");
+        System.setProperty("PRICER_URL","http://localhost:8084/pricer");
+        System.setProperty("REWARD_URL","http://localhost:8083/rewards");
+        System.setProperty("USER_URL","http://localhost:8082/user");
+    }
 
     @BeforeEach
     void setUp() {
