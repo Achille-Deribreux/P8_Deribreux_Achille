@@ -1,6 +1,7 @@
 package tourGuide.user.WebClient;
 
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
@@ -28,16 +29,24 @@ class GpsWebClientTest {
     GpsWebClient gpsWebClient = new GpsWebClient();
 
     // Declare the base url (for localhost)
-    //@Value("${tourguide.main.gpsurl}")
-    private String BASE_URL_LOCALHOST_gps = "http://localhost:8081/gps";
+    @Value("${tourguide.main.gpsurl}")
+    private String BASE_URL_LOCALHOST_GPS;
     //Declare the path to userLocation
     private final String PATH_USER_LOCATION = "/getUserLocation";
     //Declare userId param
     private final String USER_ID = "?userId=";
 
+    @BeforeAll
+    static void setUpBeforeAll() {
+        System.setProperty("GPS_URL","http://localhost:8081/gps");
+        System.setProperty("PRICER_URL","http://localhost:8084/pricer");
+        System.setProperty("REWARD_URL","http://localhost:8083/rewards");
+        System.setProperty("USER_URL","http://localhost:8082/user");
+    }
+
     @BeforeEach
     void setUp() {
-        gpsWebClient.setBASE_URL_LOCALHOST_gps(BASE_URL_LOCALHOST_gps);
+        gpsWebClient.setBASE_URL_LOCALHOST_GPS(BASE_URL_LOCALHOST_GPS);
     }
 
     @Test
@@ -47,7 +56,7 @@ class GpsWebClientTest {
         VisitedLocation expected = Data.getLastVisitedLocationOfUser();
         VisitedLocation result;
         //When
-        Mockito.when(restTemplate.getForEntity(BASE_URL_LOCALHOST_gps+PATH_USER_LOCATION+USER_ID+userId, VisitedLocation.class)).thenReturn(new ResponseEntity<>(expected, HttpStatus.OK));
+        Mockito.when(restTemplate.getForEntity(BASE_URL_LOCALHOST_GPS+PATH_USER_LOCATION+USER_ID+userId, VisitedLocation.class)).thenReturn(new ResponseEntity<>(expected, HttpStatus.OK));
         result = gpsWebClient.trackUserLocationFromGps(userId);
         //Then
         Assertions.assertEquals(expected,result);

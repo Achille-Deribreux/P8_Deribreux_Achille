@@ -3,6 +3,7 @@ package tourGuide.user.WebClient;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
@@ -21,8 +22,8 @@ import java.util.List;
 public class RewardsWebClient {
     private final Logger logger = LoggerFactory.getLogger(RewardsWebClient.class);
 
-    //@Value("${tourguide.main.rewardsurl}")
-    private String BASE_URL_LOCALHOST_REWARDS = "http://tourguide-rewards:8083/rewards";
+    @Value("${tourguide.main.rewardsurl}")
+    private String BASE_URL_LOCALHOST_REWARDS;
     // Declare the path to calculateRewards
     private final String PATH_CALCULATE_REWARDS = "/calculateRewards";
 
