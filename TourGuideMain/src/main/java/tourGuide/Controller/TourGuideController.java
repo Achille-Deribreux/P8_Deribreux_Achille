@@ -10,9 +10,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import tourGuide.DTO.NearbyAttractionsDTO;
-import tourGuide.DTO.UserPreferencesDTO;
-import tourGuide.Entity.*;
+import com.con.DTO.*;
+import com.con.Entity.*;
 import tourGuide.WebClient.UserWebClient;
 import tourGuide.service.TourGuideService;
 

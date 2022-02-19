@@ -22,7 +22,8 @@ import tourGuide.WebClient.PricerWebClient;
 import tourGuide.WebClient.RewardsWebClient;
 import tourGuide.WebClient.UserWebClient;
 import tourGuide.service.TourGuideService;
-import tourGuide.Entity.User;
+import com.con.DTO.*;
+import com.con.Entity.*;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringBootTest

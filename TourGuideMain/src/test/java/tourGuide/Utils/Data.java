@@ -1,8 +1,8 @@
 package tourGuide.Utils;
 
 import org.javamoney.moneta.Money;
-import tourGuide.DTO.*;
-import tourGuide.Entity.*;
+import com.con.DTO.*;
+import com.con.Entity.*;
 
 import javax.money.CurrencyUnit;
 import javax.money.Monetary;

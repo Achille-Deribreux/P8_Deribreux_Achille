@@ -54,6 +54,8 @@ dependencies {
     implementation 'org.junit.jupiter:junit-jupiter:5.8.2'
     implementation 'org.springframework.boot:spring-boot-starter-test:2.6.3'
     implementation 'junit:junit:4.13.2'
+    implementation name: 'commonData'
+    compile(name:'commonData', ext:'jar')
     compile("org.springframework.boot:spring-boot-starter-web")
     compile("org.springframework.boot:spring-boot-starter-actuator")
     compile group: 'org.javamoney', name: 'moneta', version: '1.3'

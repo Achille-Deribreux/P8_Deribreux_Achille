@@ -10,10 +10,10 @@ import org.springframework.http.MediaType;
 import org.springframework.http.RequestEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
-import tourGuide.DTO.UserDTO;
-import tourGuide.Entity.User;
+import com.con.DTO.*;
+import com.con.Entity.*;
 import tourGuide.Utils.Mapper;
-import tourGuide.Entity.UserReward;
+
 
 import java.net.URI;
 import java.net.URISyntaxException;

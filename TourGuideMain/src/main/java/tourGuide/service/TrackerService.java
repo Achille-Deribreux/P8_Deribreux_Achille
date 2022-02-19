@@ -7,7 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
-import tourGuide.Entity.User;
+import com.con.DTO.*;
+import com.con.Entity.*;
 import tourGuide.WebClient.UserWebClient;
 
 import java.net.URISyntaxException;

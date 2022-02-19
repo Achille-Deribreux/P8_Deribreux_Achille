@@ -11,9 +11,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.*;
 import org.springframework.web.client.RestTemplate;
-import tourGuide.DTO.UserDTO;
-import tourGuide.Entity.User;
-import tourGuide.Entity.UserReward;
+import com.con.DTO.*;
+import com.con.Entity.*;
 import tourGuide.Utils.Data;
 import tourGuide.Utils.Mapper;
 

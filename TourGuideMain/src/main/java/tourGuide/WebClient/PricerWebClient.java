@@ -11,8 +11,8 @@ import org.springframework.http.RequestEntity;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
-import tourGuide.Entity.Provider;
-import tourGuide.Entity.User;
+import com.con.DTO.*;
+import com.con.Entity.*;
 
 import java.net.URI;
 import java.net.URISyntaxException;
