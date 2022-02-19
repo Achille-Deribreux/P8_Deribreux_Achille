@@ -2,6 +2,10 @@ package tourGuide.rewards.Utils;
 
 public class DistanceCalculator {
 
+    private DistanceCalculator() {
+        //Empty constructor
+    }
+
     /**********************************************************************************
      *
      * Distance calculation below

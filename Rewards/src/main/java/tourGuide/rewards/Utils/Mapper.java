@@ -7,12 +7,15 @@ import tourGuide.rewards.Entity.User;
 import tourGuide.rewards.Entity.UserPreferences;
 
 import javax.money.Monetary;
-import java.util.ArrayList;
-import java.util.List;
+
 
 import static java.lang.Integer.parseInt;
 
 public class Mapper {
+
+    private Mapper() {
+        //Empty constructor
+    }
 
     /**
      * method that converts userDTO to user

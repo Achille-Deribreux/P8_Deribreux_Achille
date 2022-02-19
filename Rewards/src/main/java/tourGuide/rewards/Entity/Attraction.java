@@ -1,20 +1,15 @@
 package tourGuide.rewards.Entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
 import java.util.Objects;
 import java.util.UUID;
 
 public class Attraction {
-     public UUID attractionId;
-     public String attractionName;
-     String city;
-     String state;
-     double latitude;
-     double longitude;
+     private UUID attractionId;
+     private String attractionName;
+     private String city;
+     private String state;
+     private double latitude;
+     private double longitude;
 
      public Attraction(UUID attractionId, String attractionName, String city, String state, double latitude, double longitude) {
           this.attractionId = attractionId;

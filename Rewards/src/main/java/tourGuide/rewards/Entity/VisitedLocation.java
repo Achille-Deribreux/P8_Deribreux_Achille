@@ -1,19 +1,14 @@
 package tourGuide.rewards.Entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
 import java.util.Date;
 import java.util.Objects;
 import java.util.UUID;
 
 
 public class VisitedLocation {
-    public UUID userId;
-    public Location location;
-    public Date timeVisited;
+    private UUID userId;
+    private Location location;
+    private Date timeVisited;
 
     public VisitedLocation(UUID userId, Location location, Date timeVisited) {
         this.userId = userId;

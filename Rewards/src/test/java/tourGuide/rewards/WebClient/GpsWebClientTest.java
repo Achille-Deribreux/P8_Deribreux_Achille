@@ -21,7 +21,7 @@ import tourGuide.rewards.TestUtils.Data;
 import java.util.List;
 
 @SpringBootTest
-public class GpsWebClientTest {
+class GpsWebClientTest {
 
     @Mock
     private RestTemplate restTemplate;

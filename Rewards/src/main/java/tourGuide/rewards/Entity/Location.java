@@ -1,16 +1,11 @@
 package tourGuide.rewards.Entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
 import java.util.Objects;
 
 
 public class Location {
-    public double longitude;
-    public double latitude;
+    private double longitude;
+    private double latitude;
 
     public Location(double longitude, double latitude) {
         this.longitude = longitude;

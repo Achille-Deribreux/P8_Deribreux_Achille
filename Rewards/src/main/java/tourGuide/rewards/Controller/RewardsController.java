@@ -19,10 +19,10 @@ import java.util.List;
 @RequestMapping("/rewards")
 public class RewardsController {
 
-    private Logger logger = LoggerFactory.getLogger(RewardsController.class);
+    private final Logger logger = LoggerFactory.getLogger(RewardsController.class);
 
     @Autowired
-    RewardsService rewardsService;
+    private RewardsService rewardsService;
 
     /**
      * This method answer to a post request at /calculateRewards and returns a list of rewards for a given user

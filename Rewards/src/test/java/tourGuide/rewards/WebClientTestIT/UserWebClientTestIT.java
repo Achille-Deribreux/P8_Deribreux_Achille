@@ -22,7 +22,7 @@ import java.util.Date;
 import java.util.UUID;
 
 @SpringBootTest
-public class UserWebClientTestIT {
+class UserWebClientTestIT {
 
     UserWebClient userWebClient = new UserWebClient();
 

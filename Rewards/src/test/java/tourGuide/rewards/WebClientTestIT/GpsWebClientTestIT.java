@@ -19,7 +19,7 @@ import tourGuide.rewards.WebClient.GpsWebClient;
 import java.util.List;
 
 @SpringBootTest
-public class GpsWebClientTestIT {
+class GpsWebClientTestIT {
 
     GpsWebClient gpsWebClient = new GpsWebClient();
 

@@ -5,7 +5,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import rewardCentral.RewardCentral;
-import tourGuide.rewards.Controller.RewardsController;
 import tourGuide.rewards.Entity.*;
 import tourGuide.rewards.Utils.DistanceCalculator;
 import tourGuide.rewards.WebClient.GpsWebClient;
@@ -13,7 +12,6 @@ import tourGuide.rewards.WebClient.UserWebClient;
 
 import java.net.URISyntaxException;
 import java.util.List;
-import java.util.concurrent.CopyOnWriteArrayList;
 
 @Service
 public class RewardsService {
@@ -21,14 +19,14 @@ public class RewardsService {
     private Logger logger = LoggerFactory.getLogger(RewardsService.class);
 
     @Autowired
-    GpsWebClient gpsWebClient = new GpsWebClient();
+    private GpsWebClient gpsWebClient = new GpsWebClient();
 
     @Autowired
-    UserWebClient userWebClient = new UserWebClient();
+    private UserWebClient userWebClient = new UserWebClient();
 
-    RewardCentral rewardsCentral = new RewardCentral();
+    private RewardCentral rewardsCentral = new RewardCentral();
 
-    List<Attraction> attractions = null;
+    private List<Attraction> attractions = null;
 
     private int proximityBuffer = 10;
 
@@ -70,7 +68,7 @@ public class RewardsService {
                 {
                     logger.info("start stream the visitedLocation list");
                     attractions.forEach(a -> {
-                        if (user.getUserRewards().stream().noneMatch(r -> r.attraction.attractionName.equals(a.attractionName))) {
+                        if (user.getUserRewards().stream().noneMatch(r -> r.getAttraction().getAttractionName().equals(a.getAttractionName()))) {
                             if (nearAttraction(visitedLocation, a)) {
                                 try {
                                     logger.info("User gets a reward !");
@@ -92,8 +90,8 @@ public class RewardsService {
      * @return Boolean, if true then distance between the visitedLocation and the attraction is less than the proximity buffer value
      */
      boolean nearAttraction(VisitedLocation visitedLocation, Attraction attraction) {
-         logger.info("Check distance between : "+visitedLocation.location +" position and "+ attraction.getAttractionName()+" attraction");
-        return DistanceCalculator.distance(attraction.getLatitude(), attraction.getLongitude(), visitedLocation.location.getLatitude(),visitedLocation.location.getLongitude()) < proximityBuffer;
+         logger.info("Check distance between : "+ visitedLocation.getLocation() +" position and "+ attraction.getAttractionName()+" attraction");
+        return DistanceCalculator.distance(attraction.getLatitude(), attraction.getLongitude(), visitedLocation.getLocation().getLatitude(), visitedLocation.getLocation().getLongitude()) < proximityBuffer;
     }
 
     /**
@@ -103,7 +101,7 @@ public class RewardsService {
      * @return a number of rewardPoints
      */
      int getRewardPoints(Attraction attraction, User user) {
-         logger.info("calculate rewards for user "+user.getUserName()+" and attraction "+attraction.attractionName);
-        return rewardsCentral.getAttractionRewardPoints(attraction.attractionId, user.getUserId());
+         logger.info("calculate rewards for user "+user.getUserName()+" and attraction "+ attraction.getAttractionName());
+        return rewardsCentral.getAttractionRewardPoints(attraction.getAttractionId(), user.getUserId());
     }
 }

@@ -18,6 +18,7 @@ public class UserPreferences {
     private int numberOfChildren = 0;
 
     public UserPreferences() {
+        //Empty constructor
     }
 
     public void setAttractionProximity(int attractionProximity) {

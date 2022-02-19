@@ -17,7 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @SpringBootTest
-public class UserWebClientTest {
+class UserWebClientTest {
 
     @Mock
     RestTemplate restTemplate;
