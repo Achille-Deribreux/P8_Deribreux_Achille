@@ -21,7 +21,7 @@ import java.util.UUID;
 public class GpsController {
 
     @Autowired
-    GpsService gpsService;
+    private GpsService gpsService;
 
     private Logger logger = LoggerFactory.getLogger(GpsController.class);
 

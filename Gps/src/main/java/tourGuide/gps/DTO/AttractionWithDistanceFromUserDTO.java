@@ -9,8 +9,8 @@ import java.util.Objects;
 
 
 public class AttractionWithDistanceFromUserDTO {
-    Attraction attraction;
-    Double distanceFromUser;
+    private Attraction attraction;
+    private Double distanceFromUser;
 
     public AttractionWithDistanceFromUserDTO() {
     }

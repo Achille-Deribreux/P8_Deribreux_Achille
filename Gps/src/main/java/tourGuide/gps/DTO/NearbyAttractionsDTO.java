@@ -1,8 +1,6 @@
 package tourGuide.gps.DTO;
 
 
-
-import lombok.*;
 import tourGuide.gps.Entity.Attraction;
 import tourGuide.gps.Entity.Location;
 

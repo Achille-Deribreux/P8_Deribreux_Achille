@@ -1,9 +1,10 @@
 package tourGuide.gps.Utils;
 
 import tourGuide.gps.Entity.Attraction;
-import tourGuide.gps.Entity.Location;
 
 public class Mapper {
+
+    private Mapper(){}
 
     /**
      * Method who convert a GpsUtil attraction to a Gps.Entity.Attraction

@@ -22,11 +22,11 @@ import java.util.stream.Collectors;
 @Service
 public class GpsService {
 
-    private Logger logger = LoggerFactory.getLogger(GpsService.class);
+    private final Logger logger = LoggerFactory.getLogger(GpsService.class);
 
     private GpsUtil gpsUtil = new GpsUtil();
 
-    List<Attraction> attractionList = gpsUtil.getAttractions();
+    private List<Attraction> attractionList = gpsUtil.getAttractions();
 
     /**
      *  This method is a setter of gpsUtil
@@ -76,7 +76,7 @@ public class GpsService {
         List<AttractionWithDistanceFromUserDTO> attractionWithDistanceFromUserList = new ArrayList<>();
 
         for(Attraction attraction : getAllAttractions()) {
-            attractionWithDistanceFromUserList.add(new AttractionWithDistanceFromUserDTO(Mapper.mapAttractionFromGpsToEntity(attraction), DistanceCalculator.distance(location.latitude, location.longitude, attraction.latitude, attraction.longitude)));
+            attractionWithDistanceFromUserList.add(new AttractionWithDistanceFromUserDTO(Mapper.mapAttractionFromGpsToEntity(attraction), DistanceCalculator.distance(location.getLatitude(), location.getLongitude(), attraction.latitude, attraction.longitude)));
         }
 
         return attractionWithDistanceFromUserList.stream().sorted(Comparator.comparing(AttractionWithDistanceFromUserDTO::getDistanceFromUser)).collect(Collectors.toList());

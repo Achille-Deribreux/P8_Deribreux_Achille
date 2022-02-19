@@ -59,7 +59,7 @@ public class GpsServiceTest {
         List<NearbyAttractionsDTO> result;
         //When
         Mockito.when(gpsUtil.getAttractions()).thenReturn(TestUtils.getAttractions());
-        result=gpsService.getNearByAttractions(location.latitude,location.longitude,5);
+        result=gpsService.getNearByAttractions(location.getLatitude(),location.getLongitude(),5);
         //Then
         Assertions.assertEquals(expected, result);
     }
@@ -72,7 +72,7 @@ public class GpsServiceTest {
         List<AttractionWithDistanceFromUserDTO> result;
 
         for(Attraction attraction : TestUtils.mapedAttractionList()) {
-            expected.add(new AttractionWithDistanceFromUserDTO(attraction, DistanceCalculator.distance(location.latitude, location.longitude, attraction.getLatitude(), attraction.getLongitude())));
+            expected.add(new AttractionWithDistanceFromUserDTO(attraction, DistanceCalculator.distance(location.getLatitude(), location.getLongitude(), attraction.getLatitude(), attraction.getLongitude())));
         }
         expected = expected.stream().sorted(Comparator.comparing(AttractionWithDistanceFromUserDTO::getDistanceFromUser)).collect(Collectors.toList());
 

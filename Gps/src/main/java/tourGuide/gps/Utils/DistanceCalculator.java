@@ -2,6 +2,9 @@ package tourGuide.gps.Utils;
 
 public class DistanceCalculator {
 
+    private DistanceCalculator() {
+    }
+
     /**********************************************************************************
      *
      * Distance calculation below
