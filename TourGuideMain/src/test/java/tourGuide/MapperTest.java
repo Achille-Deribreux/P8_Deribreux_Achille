@@ -19,7 +19,7 @@ import java.util.Currency;
 import java.util.List;
 
 @SpringBootTest
-public class MapperTest {
+class MapperTest {
 
     @Test
     void userPreferencesMapperToDTOTest() {

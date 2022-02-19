@@ -27,7 +27,7 @@ import java.util.Map;
 import java.util.UUID;
 
 @SpringBootTest
-public class UserWebClientTest {
+class UserWebClientTest {
 
     @Mock
     RestTemplate restTemplate;

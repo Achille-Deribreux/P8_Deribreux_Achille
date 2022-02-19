@@ -23,7 +23,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 
 @WebMvcTest(TourGuideController.class)
-public class TourGuideControllerTest {
+class TourGuideControllerTest {
 
     @Autowired
     MockMvc mockMvc;

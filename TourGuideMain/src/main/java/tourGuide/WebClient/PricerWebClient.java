@@ -23,7 +23,7 @@ import java.util.UUID;
 public class PricerWebClient {
 
     @Autowired
-    RestTemplate restTemplate;
+    private RestTemplate restTemplate;
 
     // Declare the base url (for localhost)
     //@Value("${tourguide.main.pricerurl}")

@@ -25,7 +25,7 @@ import tourGuide.service.TourGuideService;
 import tourGuide.Entity.User;
 
 @SpringBootTest
-public class TestPerformance {
+class TestPerformance {
 	private Logger logger = LoggerFactory.getLogger(TestPerformance.class);
 
 	//@Value("${tourguide.main.userurl}")

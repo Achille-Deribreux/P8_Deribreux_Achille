@@ -1,10 +1,9 @@
 package tourGuide.DTO;
 
 
-import lombok.EqualsAndHashCode;
 import tourGuide.Entity.Provider;
-import tourGuide.Entity.VisitedLocation;
 import tourGuide.Entity.UserReward;
+import tourGuide.Entity.VisitedLocation;
 
 import java.util.*;
 

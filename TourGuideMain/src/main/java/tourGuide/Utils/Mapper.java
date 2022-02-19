@@ -14,6 +14,9 @@ import static java.lang.Integer.parseInt;
 
 public class Mapper {
 
+    private Mapper() {
+    }
+
     /**
      * Method which convert an UserDTO list to a user list
      * @param userDTOList list of userDTO that we want to convert

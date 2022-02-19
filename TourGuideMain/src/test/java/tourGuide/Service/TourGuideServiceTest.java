@@ -27,7 +27,7 @@ import java.util.UUID;
 import static org.mockito.Mockito.doNothing;
 
 @SpringBootTest
-public class TourGuideServiceTest {
+class TourGuideServiceTest {
 
     @Autowired
     TourGuideService tourGuideService;

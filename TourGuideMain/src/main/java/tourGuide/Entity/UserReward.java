@@ -3,8 +3,8 @@ package tourGuide.Entity;
 
 public class UserReward {
 
-	public VisitedLocation visitedLocation;
-	public Attraction attraction;
+	private VisitedLocation visitedLocation;
+	private Attraction attraction;
 	private int rewardPoints;
 
 	public UserReward(VisitedLocation visitedLocation, Attraction attraction) {

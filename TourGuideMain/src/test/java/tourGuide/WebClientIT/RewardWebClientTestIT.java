@@ -23,7 +23,7 @@ import java.net.URISyntaxException;
 import java.util.List;
 
 @SpringBootTest
-public class RewardWebClientTestIT {
+class RewardWebClientTestIT {
 
     @Autowired
     RewardsWebClient rewardsWebClient;

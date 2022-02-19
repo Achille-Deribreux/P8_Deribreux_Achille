@@ -1,6 +1,5 @@
 package tourGuide.service;
 
-import lombok.NoArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +11,6 @@ import tourGuide.WebClient.GpsWebClient;
 import tourGuide.WebClient.PricerWebClient;
 import tourGuide.WebClient.RewardsWebClient;
 import tourGuide.WebClient.UserWebClient;
-import tripPricer.TripPricer;
 
 import java.net.URISyntaxException;
 import java.util.List;
@@ -20,21 +18,20 @@ import java.util.Map;
 import java.util.UUID;
 
 @Service
-@NoArgsConstructor
 public class TourGuideService {
 	private Logger logger = LoggerFactory.getLogger(TourGuideService.class);
 
 	@Autowired
-	GpsWebClient gpsWebClient = new GpsWebClient();
+	private GpsWebClient gpsWebClient = new GpsWebClient();
 
 	@Autowired
-	UserWebClient userWebClient = new UserWebClient();
+	private UserWebClient userWebClient = new UserWebClient();
 
 	@Autowired
-	PricerWebClient pricerWebClient = new PricerWebClient();
+	private PricerWebClient pricerWebClient = new PricerWebClient();
 
 	@Autowired
-	RewardsWebClient rewardsWebClient = new RewardsWebClient();
+	private RewardsWebClient rewardsWebClient = new RewardsWebClient();
 
 	public void setUserWebClient(UserWebClient userWebClient) {
 		this.userWebClient = userWebClient;
@@ -50,6 +47,10 @@ public class TourGuideService {
 
 	public void setGpsWebClient(GpsWebClient gpsWebClient) {
 		this.gpsWebClient = gpsWebClient;
+	}
+
+	public TourGuideService() {
+		//Empty constructor
 	}
 
 	/**

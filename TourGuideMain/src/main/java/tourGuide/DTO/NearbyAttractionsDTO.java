@@ -1,10 +1,6 @@
 package tourGuide.DTO;
 
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 import tourGuide.Entity.Attraction;
 import tourGuide.Entity.Location;
 

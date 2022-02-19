@@ -22,10 +22,10 @@ public class TourGuideController {
     private Logger logger = LoggerFactory.getLogger(TourGuideService.class);
 
 	@Autowired
-	TourGuideService tourGuideService = new TourGuideService();
+    private TourGuideService tourGuideService = new TourGuideService();
 
     @Autowired
-    UserWebClient userWebClient = new UserWebClient();
+    private UserWebClient userWebClient = new UserWebClient();
 
     /**
      * Root request, returns "hello"

@@ -19,14 +19,14 @@ import java.util.concurrent.*;
 public class TrackerService {
 
     @Autowired
-    UserWebClient userWebClient;
+    private UserWebClient userWebClient;
 
     @Autowired
-    TourGuideService tourGuideService;
+    private TourGuideService tourGuideService;
 
     private Logger logger = LoggerFactory.getLogger(TrackerService.class);
 
-    List<User> users = null;
+    private List<User> users = null;
 
 
     /**

@@ -22,7 +22,7 @@ import java.util.List;
 import java.util.UUID;
 
 @SpringBootTest
-public class PricerWebClientTestIT {
+class PricerWebClientTestIT {
 
     @Mock
     RestTemplate restTemplate;

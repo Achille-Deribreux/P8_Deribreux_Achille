@@ -24,7 +24,7 @@ import java.util.Map;
 import java.util.UUID;
 
 @SpringBootTest
-public class UserWebClientTestIT {
+class UserWebClientTestIT {
 
     @InjectMocks
     UserWebClient userWebClient;

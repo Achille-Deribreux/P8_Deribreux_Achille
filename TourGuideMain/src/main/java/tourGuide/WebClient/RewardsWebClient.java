@@ -25,7 +25,7 @@ import java.util.List;
 public class RewardsWebClient {
 
     @Autowired
-    RestTemplate restTemplate = new RestTemplate();
+    private RestTemplate restTemplate = new RestTemplate();
 
     public void setRestTemplate(RestTemplate restTemplate) {
         this.restTemplate = restTemplate;
@@ -36,7 +36,7 @@ public class RewardsWebClient {
     // Declare the path to calculateRewards
     private final String PATH_CALCULATE_REWARDS = "/calculateRewards";
 
-    private Logger logger = LoggerFactory.getLogger(RewardsWebClient.class);
+    private final Logger logger = LoggerFactory.getLogger(RewardsWebClient.class);
 
     public void setBASE_URL_LOCALHOST_rewards(String BASE_URL_LOCALHOST_rewards) {
         this.BASE_URL_LOCALHOST_rewards = BASE_URL_LOCALHOST_rewards;

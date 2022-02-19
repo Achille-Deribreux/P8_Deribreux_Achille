@@ -23,7 +23,7 @@ import java.util.List;
 import java.util.UUID;
 
 @SpringBootTest
-public class GpsWebClientTestIT {
+class GpsWebClientTestIT {
 
     @InjectMocks
     GpsWebClient gpsWebClient = new GpsWebClient();

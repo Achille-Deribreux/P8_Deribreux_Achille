@@ -5,10 +5,10 @@ import java.util.UUID;
 
 
 public class Attraction {
-     String attractionName;
-     String city;
-     String state;
-     UUID attractionId;
+     private String attractionName;
+     private String city;
+     private String state;
+     private UUID attractionId;
 
      public Attraction(String attractionName, String city, String state, UUID attractionId) {
           this.attractionName = attractionName;
