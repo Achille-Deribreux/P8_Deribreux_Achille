@@ -1,6 +1,7 @@
-package tourGuide.gps.Entity;
+package com.con.Entity;
 
 import java.util.Objects;
+
 
 public class Location {
     private double longitude;
@@ -9,6 +10,9 @@ public class Location {
     public Location(double longitude, double latitude) {
         this.longitude = longitude;
         this.latitude = latitude;
+    }
+
+    public Location() {
     }
 
     public double getLongitude() {

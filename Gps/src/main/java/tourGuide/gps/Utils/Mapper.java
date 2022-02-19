@@ -1,6 +1,6 @@
 package tourGuide.gps.Utils;
 
-import tourGuide.gps.Entity.Attraction;
+import com.con.Entity.Attraction;
 
 public class Mapper {
 
@@ -12,10 +12,11 @@ public class Mapper {
      * @return Gps.Entity.Attraction
      */
     public static Attraction mapAttractionFromGpsToEntity(gpsUtil.location.Attraction attractionToMap){
-        return new Attraction(attractionToMap.attractionId,
+        return new Attraction(
                 attractionToMap.attractionName,
                 attractionToMap.city,
                 attractionToMap.state,
+                attractionToMap.attractionId,
                 attractionToMap.latitude,
                 attractionToMap.longitude
         );

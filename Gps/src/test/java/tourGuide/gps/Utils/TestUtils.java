@@ -1,9 +1,9 @@
 package tourGuide.gps.Utils;
 
+import com.con.DTO.NearbyAttractionsDTO;
 import gpsUtil.GpsUtil;
 import gpsUtil.location.Attraction;
-import gpsUtil.location.Location;
-import tourGuide.gps.DTO.NearbyAttractionsDTO;
+
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,20 +17,20 @@ public class TestUtils {
         return gpsUtil.getAttractions();
     }
 
-    public static List<tourGuide.gps.Entity.Attraction> mapedAttractionList(){
+    public static List<com.con.Entity.Attraction> mapedAttractionList(){
         return mapAttraction(getAttractions());
     }
 
-    public static List<tourGuide.gps.Entity.Attraction> mapAttraction(List<Attraction> attractionList){
-        List<tourGuide.gps.Entity.Attraction> mappedAttractionList = new ArrayList<>();
+    public static List<com.con.Entity.Attraction> mapAttraction(List<Attraction> attractionList){
+        List<com.con.Entity.Attraction> mappedAttractionList = new ArrayList<>();
 
         for(Attraction attraction : attractionList){
             mappedAttractionList.add(
-                    new tourGuide.gps.Entity.Attraction(
-                            attraction.attractionId,
+                    new com.con.Entity.Attraction(
                             attraction.attractionName,
                             attraction.city,
                             attraction.state,
+                            attraction.attractionId,
                             attraction.latitude,
                             attraction.longitude
                     )
@@ -39,18 +39,18 @@ public class TestUtils {
         return  mappedAttractionList;
     }
 
-    public static Attraction reverseMapping(tourGuide.gps.Entity.Attraction attraction){
+    public static Attraction reverseMapping(com.con.Entity.Attraction attraction){
         return new Attraction(attraction.getAttractionName(),attraction.getCity(),attraction.getState(), attraction.getLatitude(), attraction.getLongitude());
     }
 
     public static List<NearbyAttractionsDTO> getFiveNearestLocations(){
-        tourGuide.gps.Entity.Location location = new tourGuide.gps.Entity.Location(7.5381817317681765,117.45241599562848);
+        com.con.Entity.Location location = new com.con.Entity.Location(7.5381817317681765,117.45241599562848);
         List<NearbyAttractionsDTO> expected = new ArrayList<>();
-        expected.add(new NearbyAttractionsDTO(new tourGuide.gps.Entity.Attraction(
-                UUID.fromString("203873ae-3673-4389-a76d-75ddc49f0eab"),
+        expected.add(new NearbyAttractionsDTO(new com.con.Entity.Attraction(
                 "McKinley Tower",
                 "Anchorage",
                 "AK",
+                UUID.fromString("203873ae-3673-4389-a76d-75ddc49f0eab"),
                 61.218887,
                 -149.877502),
                 location,
@@ -58,11 +58,11 @@ public class TestUtils {
                 1)
         );
 
-        expected.add(new NearbyAttractionsDTO(new tourGuide.gps.Entity.Attraction(
-                UUID.fromString("9ccdd0bf-83d8-4cd6-bb29-022e0463a049"),
+        expected.add(new NearbyAttractionsDTO(new com.con.Entity.Attraction(
                 "Jackson Hole",
                 "Jackson Hole",
                 "WY",
+                UUID.fromString("9ccdd0bf-83d8-4cd6-bb29-022e0463a049"),
                 43.582767,
                 -110.821999),
                 location,
@@ -70,11 +70,11 @@ public class TestUtils {
                 1)
         );
 
-        expected.add(new NearbyAttractionsDTO(new tourGuide.gps.Entity.Attraction(
-                UUID.fromString("0712fb6d-e22c-4936-9e32-8144095af7fc"),
+        expected.add(new NearbyAttractionsDTO(new com.con.Entity.Attraction(
                 "Mojave National Preserve",
                 "Kelso",
                 "CA",
+                UUID.fromString("0712fb6d-e22c-4936-9e32-8144095af7fc"),
                 35.141689,
                 -115.510399),
                 location,
@@ -82,11 +82,11 @@ public class TestUtils {
                 1)
         );
 
-        expected.add(new NearbyAttractionsDTO(new tourGuide.gps.Entity.Attraction(
-                UUID.fromString("770b82d4-2c78-4214-b320-324a55f3822f"),
+        expected.add(new NearbyAttractionsDTO(new com.con.Entity.Attraction(
                 "Disneyland",
                 "Anaheim",
                 "CA",
+                UUID.fromString("770b82d4-2c78-4214-b320-324a55f3822f"),
                 33.817595,
                 -117.922008),
                 location,
@@ -94,11 +94,11 @@ public class TestUtils {
                 1)
         );
 
-        expected.add(new NearbyAttractionsDTO(new tourGuide.gps.Entity.Attraction(
-                UUID.fromString("f9a2cb62-dee7-4851-a7ae-131f7b0eca93"),
+        expected.add(new NearbyAttractionsDTO(new com.con.Entity.Attraction(
                 "Joshua Tree National Park",
                "Joshua Tree National Park",
                 "CA",
+                UUID.fromString("f9a2cb62-dee7-4851-a7ae-131f7b0eca93"),
                 33.881866,
                 -115.90065),
                 location,

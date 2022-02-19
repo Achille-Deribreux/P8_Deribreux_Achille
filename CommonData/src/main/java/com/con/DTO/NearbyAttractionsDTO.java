@@ -1,8 +1,8 @@
-package tourGuide.gps.DTO;
+package com.con.DTO;
 
 
-import tourGuide.gps.Entity.Attraction;
-import tourGuide.gps.Entity.Location;
+import com.con.Entity.Attraction;
+import com.con.Entity.Location;
 
 import java.util.Objects;
 
@@ -18,6 +18,9 @@ public class NearbyAttractionsDTO {
         this.userLocation = userLocation;
         this.distance = distance;
         this.rewardPoints = rewardPoints;
+    }
+
+    public NearbyAttractionsDTO() {
     }
 
     public Attraction getAttraction() {
@@ -75,4 +78,3 @@ public class NearbyAttractionsDTO {
                 '}';
     }
 }
-

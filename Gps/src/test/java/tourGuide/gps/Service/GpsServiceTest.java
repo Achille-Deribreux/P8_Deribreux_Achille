@@ -1,5 +1,9 @@
 package tourGuide.gps.Service;
 
+import com.con.DTO.AttractionWithDistanceFromUserDTO;
+import com.con.DTO.NearbyAttractionsDTO;
+import com.con.Entity.Attraction;
+import com.con.Entity.Location;
 import gpsUtil.GpsUtil;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -8,10 +12,6 @@ import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
-import tourGuide.gps.DTO.AttractionWithDistanceFromUserDTO;
-import tourGuide.gps.DTO.NearbyAttractionsDTO;
-import tourGuide.gps.Entity.Attraction;
-import tourGuide.gps.Entity.Location;
 import tourGuide.gps.Utils.DistanceCalculator;
 import tourGuide.gps.Utils.TestUtils;
 

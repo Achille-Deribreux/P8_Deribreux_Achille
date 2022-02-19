@@ -1,14 +1,14 @@
 package tourGuide.gps.Service;
 
+import com.con.DTO.AttractionWithDistanceFromUserDTO;
+import com.con.DTO.NearbyAttractionsDTO;
+import com.con.Entity.Location;
 import gpsUtil.GpsUtil;
 import gpsUtil.location.Attraction;
 import gpsUtil.location.VisitedLocation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
-import tourGuide.gps.DTO.AttractionWithDistanceFromUserDTO;
-import tourGuide.gps.DTO.NearbyAttractionsDTO;
-import tourGuide.gps.Entity.Location;
 import tourGuide.gps.Utils.DistanceCalculator;
 import tourGuide.gps.Utils.Mapper;
 

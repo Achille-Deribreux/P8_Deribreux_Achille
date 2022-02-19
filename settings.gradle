@@ -13,4 +13,5 @@ include 'User'
 include 'Rewards'
 include 'Pricer'
 include 'TourGuideMain'
+include 'CommonData'
 

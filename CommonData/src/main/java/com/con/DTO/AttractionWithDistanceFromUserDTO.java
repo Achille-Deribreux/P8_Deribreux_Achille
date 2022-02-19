@@ -1,16 +1,12 @@
-package tourGuide.gps.DTO;
+package com.con.DTO;
 
-
-import lombok.*;
-import tourGuide.gps.Entity.Attraction;
+import com.con.Entity.Attraction;
 
 import java.util.Objects;
 
-
-
 public class AttractionWithDistanceFromUserDTO {
-    private Attraction attraction;
-    private Double distanceFromUser;
+    Attraction attraction;
+    Double distanceFromUser;
 
     public AttractionWithDistanceFromUserDTO() {
     }
