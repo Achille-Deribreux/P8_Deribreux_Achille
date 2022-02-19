@@ -36,7 +36,7 @@ class UserWebClientTest {
     UserWebClient userWebClient;
 
     //@Value("${tourguide.main.userurl}")
-    private String BASE_URL_LOCALHOST_user = "http://tourguide-users:8082/user";
+    private String BASE_URL_LOCALHOST_USER = "http://tourguide-users:8082/user";
     private final String PATH_USER_LOCATION = "/getUserLocation";
     private final String PATH_GET_USER = "/getUser";
     private final String PATH_GET_ALL_USERS = "/getAllUsers";
@@ -48,7 +48,7 @@ class UserWebClientTest {
     @BeforeEach
     void setUp() {
         userWebClient.setRestTemplate(restTemplate);
-        userWebClient.setBASE_URL_LOCALHOST_user(BASE_URL_LOCALHOST_user);
+        userWebClient.setBASE_URL_LOCALHOST_USER(BASE_URL_LOCALHOST_USER);
     }
 
     @Test
@@ -58,7 +58,7 @@ class UserWebClientTest {
         VisitedLocation expected = Data.getLastVisitedLocationOfUser();
         VisitedLocation result;
         //When
-        Mockito.when(restTemplate.getForEntity(BASE_URL_LOCALHOST_user+PATH_USER_LOCATION+USER_NAME+user.getUserName(), VisitedLocation.class)).thenReturn(new ResponseEntity<>(expected, HttpStatus.OK));
+        Mockito.when(restTemplate.getForEntity(BASE_URL_LOCALHOST_USER+PATH_USER_LOCATION+USER_NAME+user.getUserName(), VisitedLocation.class)).thenReturn(new ResponseEntity<>(expected, HttpStatus.OK));
         result = userWebClient.getUserLocationFromUser(user.getUserName());
         //Then
         Assertions.assertEquals(expected, result);
@@ -71,7 +71,7 @@ class UserWebClientTest {
         UserDTO userDTO = Mapper.convertUserToUserDTO(expected);
         User result;
         //When
-        Mockito.when(restTemplate.getForEntity(BASE_URL_LOCALHOST_user+PATH_GET_USER+USER_NAME+expected.getUserName(), UserDTO.class)).thenReturn(new ResponseEntity<>(userDTO,HttpStatus.OK));
+        Mockito.when(restTemplate.getForEntity(BASE_URL_LOCALHOST_USER+PATH_GET_USER+USER_NAME+expected.getUserName(), UserDTO.class)).thenReturn(new ResponseEntity<>(userDTO,HttpStatus.OK));
         result = userWebClient.getUser(expected.getUserName());
         //Then
         Assertions.assertEquals(expected, result);
@@ -84,7 +84,7 @@ class UserWebClientTest {
         List<User> expected = Data.getAllUsers();
         List<User> result;
         //When
-        Mockito.when(restTemplate.exchange(BASE_URL_LOCALHOST_user+PATH_GET_ALL_USERS,
+        Mockito.when(restTemplate.exchange(BASE_URL_LOCALHOST_USER+PATH_GET_ALL_USERS,
                 HttpMethod.GET, null, new ParameterizedTypeReference<List<UserDTO>>() {
                 })).thenReturn(new ResponseEntity<>(userDTOList,HttpStatus.OK));
         result = userWebClient.getAllUsers();
@@ -98,7 +98,7 @@ class UserWebClientTest {
         Map<UUID, Location> expected =  Data.getAllUsersWithLocation();
         Map<UUID, Location> result;
         //When
-        Mockito.when( restTemplate.exchange(BASE_URL_LOCALHOST_user+PATH_GET_ALL_USERS_WITH_LOCATION,
+        Mockito.when( restTemplate.exchange(BASE_URL_LOCALHOST_USER+PATH_GET_ALL_USERS_WITH_LOCATION,
                 HttpMethod.GET, null, new ParameterizedTypeReference<Map<UUID, Location>>() {
                 }))
                 .thenReturn(new ResponseEntity<>(expected,HttpStatus.OK));
@@ -114,16 +114,16 @@ class UserWebClientTest {
         String userName = "anUserName";
         VisitedLocation lastVisitedLocation = Data.getLastVisitedLocationOfUser();
         RequestEntity<VisitedLocation> request = RequestEntity
-                .post(new URI(BASE_URL_LOCALHOST_user+PATH_ADD_USER_VISITED_LOCATION+USER_NAME+userName))
+                .post(new URI(BASE_URL_LOCALHOST_USER+PATH_ADD_USER_VISITED_LOCATION+USER_NAME+userName))
                 .accept(MediaType.APPLICATION_JSON)
                 .contentType(MediaType.APPLICATION_JSON)
                 .body(lastVisitedLocation);
         //When
-        Mockito.when(restTemplate.exchange(BASE_URL_LOCALHOST_user+PATH_ADD_USER_VISITED_LOCATION+USER_NAME+userName,
+        Mockito.when(restTemplate.exchange(BASE_URL_LOCALHOST_USER+PATH_ADD_USER_VISITED_LOCATION+USER_NAME+userName,
                 HttpMethod.POST, request, String.class)).thenReturn(new ResponseEntity<>("string",HttpStatus.OK));
         userWebClient.addUserVisitedLocation(userName,lastVisitedLocation);
         //Then
-        Mockito.verify(restTemplate,Mockito.times(1)).exchange(BASE_URL_LOCALHOST_user+PATH_ADD_USER_VISITED_LOCATION+USER_NAME+userName,
+        Mockito.verify(restTemplate,Mockito.times(1)).exchange(BASE_URL_LOCALHOST_USER+PATH_ADD_USER_VISITED_LOCATION+USER_NAME+userName,
                 HttpMethod.POST, request, String.class);
     }
 
@@ -133,16 +133,16 @@ class UserWebClientTest {
         String userName = "anUserName";
         UserPreferencesDTO userPreferencesDTO = new UserPreferencesDTO();
         RequestEntity<UserPreferencesDTO> request = RequestEntity
-                .post(new URI(BASE_URL_LOCALHOST_user+PATH_ADD_USER_PREFERENCES+USER_NAME+userName))
+                .post(new URI(BASE_URL_LOCALHOST_USER+PATH_ADD_USER_PREFERENCES+USER_NAME+userName))
                 .accept(MediaType.APPLICATION_JSON)
                 .contentType(MediaType.APPLICATION_JSON)
                 .body(userPreferencesDTO);
         //When
-        Mockito.when(restTemplate.exchange(BASE_URL_LOCALHOST_user+PATH_ADD_USER_PREFERENCES+USER_NAME+userName,
+        Mockito.when(restTemplate.exchange(BASE_URL_LOCALHOST_USER+PATH_ADD_USER_PREFERENCES+USER_NAME+userName,
                 HttpMethod.POST, request, String.class)).thenReturn(new ResponseEntity<>("string",HttpStatus.OK));
         userWebClient.addUserPreferences(userName,userPreferencesDTO);
         //Then
-        Mockito.verify(restTemplate,Mockito.times(1)).exchange(BASE_URL_LOCALHOST_user+PATH_ADD_USER_PREFERENCES+USER_NAME+userName,
+        Mockito.verify(restTemplate,Mockito.times(1)).exchange(BASE_URL_LOCALHOST_USER+PATH_ADD_USER_PREFERENCES+USER_NAME+userName,
                 HttpMethod.POST, request, String.class);;
     }
 }

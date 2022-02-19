@@ -19,14 +19,14 @@ public class GpsWebClient {
     private final Logger logger = LoggerFactory.getLogger(GpsWebClient.class);
 
     //@Value("${tourguide.main.gpsurl}")
-    private String BASE_URL_LOCALHOST_gps = "http://tourguide-gps:8081/gps";
+    private String BASE_URL_LOCALHOST_GPS = "http://tourguide-gps:8081/gps";
     //Declare the path to userLocation
     private final String PATH_USER_LOCATION = "/getUserLocation";
     //Declare userId param
     private final String USER_ID = "?userId=";
 
-    public void setBASE_URL_LOCALHOST_gps(String BASE_URL_LOCALHOST_gps) {
-        this.BASE_URL_LOCALHOST_gps = BASE_URL_LOCALHOST_gps;
+    public void setBASE_URL_LOCALHOST_GPS(String BASE_URL_LOCALHOST_GPS) {
+        this.BASE_URL_LOCALHOST_GPS = BASE_URL_LOCALHOST_GPS;
     }
 
     /**
@@ -37,7 +37,7 @@ public class GpsWebClient {
     public VisitedLocation trackUserLocationFromGps(UUID userId){
         logger.info("send request to gps app to track location of user with id : "+userId);
         ResponseEntity<VisitedLocation> result  =
-                restTemplate.getForEntity(BASE_URL_LOCALHOST_gps+PATH_USER_LOCATION+USER_ID+userId, VisitedLocation.class);
+                restTemplate.getForEntity(BASE_URL_LOCALHOST_GPS+PATH_USER_LOCATION+USER_ID+userId, VisitedLocation.class);
         return result.getBody();
     }
 }

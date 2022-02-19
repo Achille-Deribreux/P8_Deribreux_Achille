@@ -31,13 +31,13 @@ class RewardsWebClientTest {
     RewardsWebClient rewardsWebClient;
 
     //@Value("${tourguide.main.rewardsurl}")
-    private String BASE_URL_LOCALHOST_rewards = "http://localhost:8083/rewards";
+    private String BASE_URL_LOCALHOST_REWARDS = "http://localhost:8083/rewards";
 
     private final String PATH_CALCULATE_REWARDS = "/calculateRewards";
 
     @BeforeEach
     void setUp() {
-        rewardsWebClient.setBASE_URL_LOCALHOST_rewards(BASE_URL_LOCALHOST_rewards);
+        rewardsWebClient.setBASE_URL_LOCALHOST_REWARDS(BASE_URL_LOCALHOST_REWARDS);
     }
 
     @Test
@@ -46,14 +46,14 @@ class RewardsWebClientTest {
         User user = Data.getAUser();
         UserDTO userDTO = Mapper.userDTOMapper(user);
         RequestEntity<UserDTO> request = RequestEntity
-                .post(new URI(BASE_URL_LOCALHOST_rewards+PATH_CALCULATE_REWARDS))
+                .post(new URI(BASE_URL_LOCALHOST_REWARDS+PATH_CALCULATE_REWARDS))
                 .accept(MediaType.APPLICATION_JSON)
                 .contentType(MediaType.APPLICATION_JSON)
                 .body(userDTO);
         List<UserReward> expected = Data.getAUser().getUserRewards();
         List<UserReward> result;
         //When
-        Mockito.when(restTemplate.exchange(BASE_URL_LOCALHOST_rewards+PATH_CALCULATE_REWARDS, HttpMethod.POST,request,new ParameterizedTypeReference<List<UserReward>>(){})).thenReturn(new ResponseEntity<>(expected,HttpStatus.OK));
+        Mockito.when(restTemplate.exchange(BASE_URL_LOCALHOST_REWARDS+PATH_CALCULATE_REWARDS, HttpMethod.POST,request,new ParameterizedTypeReference<List<UserReward>>(){})).thenReturn(new ResponseEntity<>(expected,HttpStatus.OK));
         result = rewardsWebClient.calculateRewards(userDTO);
         //Then
         Assertions.assertEquals(expected,result);

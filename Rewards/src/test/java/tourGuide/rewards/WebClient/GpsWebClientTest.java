@@ -30,12 +30,12 @@ class GpsWebClientTest {
     GpsWebClient gpsWebClient = new GpsWebClient();
 
     //@Value("${tourguide.main.gpsurl}")
-    private String BASE_URL_LOCALHOST_gps = "http://localhost:8081/gps";
+    private String BASE_URL_LOCALHOST_GPS = "http://localhost:8081/gps";
     private final String PATH_GET_ALL_ATTRACTIONS = "/getAllAttractions";
 
     @BeforeEach
     void setUp() {
-        gpsWebClient.setBASE_URL_LOCALHOST_gps(BASE_URL_LOCALHOST_gps);
+        gpsWebClient.setBASE_URL_LOCALHOST_GPS(BASE_URL_LOCALHOST_GPS);
     }
 
     @Test
@@ -44,7 +44,7 @@ class GpsWebClientTest {
         List<Attraction> expected = Data.getAttractionList();
         List<Attraction> result;
         //When
-        Mockito.when(restTemplate.exchange(BASE_URL_LOCALHOST_gps+PATH_GET_ALL_ATTRACTIONS,
+        Mockito.when(restTemplate.exchange(BASE_URL_LOCALHOST_GPS+PATH_GET_ALL_ATTRACTIONS,
                 HttpMethod.GET, null, new ParameterizedTypeReference<List<Attraction>>() {
                 })).thenReturn(new ResponseEntity<>(expected,HttpStatus.OK));
         result = gpsWebClient.getAllAttractions();

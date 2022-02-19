@@ -64,9 +64,9 @@ class TestPerformance {
 		// Users should be incremented up to 100,000, and test finishes within 15 minutes
 		TourGuideService tourGuideService = new TourGuideService();
 		GpsWebClient gpsWebClient = new GpsWebClient();
-		gpsWebClient.setBASE_URL_LOCALHOST_gps(BASE_URL_LOCALHOST_gps);
+		gpsWebClient.setBASE_URL_LOCALHOST_GPS(BASE_URL_LOCALHOST_gps);
 		UserWebClient userWebClient = new UserWebClient();
-		userWebClient.setBASE_URL_LOCALHOST_user(BASE_URL_LOCALHOST_user);
+		userWebClient.setBASE_URL_LOCALHOST_USER(BASE_URL_LOCALHOST_user);
 		userWebClient.setRestTemplate(new RestTemplate());
 		gpsWebClient.setRestTemplate(new RestTemplate());
 		tourGuideService.setGpsWebClient(gpsWebClient);
@@ -106,10 +106,10 @@ class TestPerformance {
 		RewardsWebClient rewardsWebClient = new RewardsWebClient();
 		GpsWebClient gpsWebClient = new GpsWebClient();
 		PricerWebClient pricerWebClient = new PricerWebClient();
-		gpsWebClient.setBASE_URL_LOCALHOST_gps(BASE_URL_LOCALHOST_gps);
-		pricerWebClient.setBASE_URL_LOCALHOST_pricer(BASE_URL_LOCALHOST_pricer);
-		userWebClient.setBASE_URL_LOCALHOST_user(BASE_URL_LOCALHOST_user);
-		rewardsWebClient.setBASE_URL_LOCALHOST_rewards(BASE_URL_LOCALHOST_rewards);
+		gpsWebClient.setBASE_URL_LOCALHOST_GPS(BASE_URL_LOCALHOST_gps);
+		pricerWebClient.setBASE_URL_LOCALHOST_PRICER(BASE_URL_LOCALHOST_pricer);
+		userWebClient.setBASE_URL_LOCALHOST_USER(BASE_URL_LOCALHOST_user);
+		rewardsWebClient.setBASE_URL_LOCALHOST_REWARDS(BASE_URL_LOCALHOST_rewards);
 		rewardsWebClient.setRestTemplate(new RestTemplate());
 		userWebClient.setRestTemplate(new RestTemplate());
 		pricerWebClient.setRestTemplate(new RestTemplate());

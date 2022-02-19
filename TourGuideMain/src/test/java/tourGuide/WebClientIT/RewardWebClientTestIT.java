@@ -32,15 +32,15 @@ class RewardWebClientTestIT {
     UserWebClient userWebClient;
 
     //@Value("${tourguide.main.rewardsurl}")
-    private String BASE_URL_LOCALHOST_rewards = "http://localhost:8083/rewards";
+    private String BASE_URL_LOCALHOST_REWARDS = "http://localhost:8083/rewards";
     //@Value("${tourguide.main.userurl}")
     private String BASE_URL_LOCALHOST_user  = "http://localhost:8082/user";
     private final String PATH_CALCULATE_REWARDS = "/calculateRewards";
 
     @BeforeEach
     void setUp() {
-        rewardsWebClient.setBASE_URL_LOCALHOST_rewards(BASE_URL_LOCALHOST_rewards);
-        userWebClient.setBASE_URL_LOCALHOST_user(BASE_URL_LOCALHOST_user);
+        rewardsWebClient.setBASE_URL_LOCALHOST_REWARDS(BASE_URL_LOCALHOST_REWARDS);
+        userWebClient.setBASE_URL_LOCALHOST_USER(BASE_URL_LOCALHOST_user);
     }
 
     @Test
@@ -50,12 +50,12 @@ class RewardWebClientTestIT {
         User user = userWebClient.getUser("internalUser1");
         UserDTO userDTO = Mapper.convertUserToUserDTO(user);
         RequestEntity<UserDTO> request = RequestEntity
-                .post(new URI(BASE_URL_LOCALHOST_rewards+PATH_CALCULATE_REWARDS))
+                .post(new URI(BASE_URL_LOCALHOST_REWARDS+PATH_CALCULATE_REWARDS))
                 .accept(MediaType.APPLICATION_JSON)
                 .contentType(MediaType.APPLICATION_JSON)
                 .body(userDTO);
         //When
-        ResponseEntity<List<UserReward>> response = testRestTemplate.exchange(BASE_URL_LOCALHOST_rewards + PATH_CALCULATE_REWARDS, HttpMethod.POST, request, new ParameterizedTypeReference<List<UserReward>>() {
+        ResponseEntity<List<UserReward>> response = testRestTemplate.exchange(BASE_URL_LOCALHOST_REWARDS + PATH_CALCULATE_REWARDS, HttpMethod.POST, request, new ParameterizedTypeReference<List<UserReward>>() {
         });
         //Then
         Assertions.assertEquals(response.getStatusCode(),HttpStatus.OK);

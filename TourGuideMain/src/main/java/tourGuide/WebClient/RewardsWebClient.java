@@ -1,6 +1,5 @@
 package tourGuide.WebClient;
 
-import org.mockito.Mock;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,7 +8,6 @@ import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
 import org.springframework.http.RequestEntity;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 import tourGuide.DTO.UserDTO;
@@ -32,14 +30,14 @@ public class RewardsWebClient {
     }
 
     //@Value("${tourguide.main.rewardsurl}")
-    private String BASE_URL_LOCALHOST_rewards = "http://tourguide-rewards:8083/rewards";
+    private String BASE_URL_LOCALHOST_REWARDS = "http://tourguide-rewards:8083/rewards";
     // Declare the path to calculateRewards
     private final String PATH_CALCULATE_REWARDS = "/calculateRewards";
 
     private final Logger logger = LoggerFactory.getLogger(RewardsWebClient.class);
 
-    public void setBASE_URL_LOCALHOST_rewards(String BASE_URL_LOCALHOST_rewards) {
-        this.BASE_URL_LOCALHOST_rewards = BASE_URL_LOCALHOST_rewards;
+    public void setBASE_URL_LOCALHOST_REWARDS(String BASE_URL_LOCALHOST_REWARDS) {
+        this.BASE_URL_LOCALHOST_REWARDS = BASE_URL_LOCALHOST_REWARDS;
     }
 
     /**
@@ -50,12 +48,12 @@ public class RewardsWebClient {
         logger.info("call rewards app to calculate rewards for user : "+user.getUserName());
         UserDTO userDTO = Mapper.convertUserToUserDTO(user);
         RequestEntity<UserDTO> request = RequestEntity
-                .post(new URI(BASE_URL_LOCALHOST_rewards+PATH_CALCULATE_REWARDS))
+                .post(new URI(BASE_URL_LOCALHOST_REWARDS+PATH_CALCULATE_REWARDS))
                 .accept(MediaType.APPLICATION_JSON)
                 .contentType(MediaType.APPLICATION_JSON)
                 .body(userDTO);
 
-        restTemplate.exchange(BASE_URL_LOCALHOST_rewards+PATH_CALCULATE_REWARDS, HttpMethod.POST,request,new ParameterizedTypeReference<List<UserReward>>() {});
+        restTemplate.exchange(BASE_URL_LOCALHOST_REWARDS+PATH_CALCULATE_REWARDS, HttpMethod.POST,request,new ParameterizedTypeReference<List<UserReward>>() {});
         //return result.getBody();
     }
 }

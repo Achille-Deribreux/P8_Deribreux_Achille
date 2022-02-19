@@ -32,7 +32,7 @@ class GpsWebClientTest {
 
     // Declare the base url (for localhost)
     //@Value("${tourguide.main.gpsurl}")
-    private String BASE_URL_LOCALHOST_gps = "http://localhost:8081/gps";
+    private String BASE_URL_LOCALHOST_GPS = "http://localhost:8081/gps";
     // Declare the path to attraction
     private final String PATH_NEARBY_ATTRACTIONS = "/getNearbyAttractions";
     //Declare the path to userLocation
@@ -48,7 +48,7 @@ class GpsWebClientTest {
 
     @BeforeEach
     void setUp() {
-        gpsWebClient.setBASE_URL_LOCALHOST_gps(BASE_URL_LOCALHOST_gps);
+        gpsWebClient.setBASE_URL_LOCALHOST_GPS(BASE_URL_LOCALHOST_GPS);
     }
 
     @Test
@@ -60,7 +60,7 @@ class GpsWebClientTest {
         List<NearbyAttractionsDTO> expected = Data.getFiveNearestLocations();
         List<NearbyAttractionsDTO> result;
         //When
-        Mockito.when( restTemplate.exchange(BASE_URL_LOCALHOST_gps+PATH_NEARBY_ATTRACTIONS+LATITUDE+latitude+LONGITUDE+longitude+LIMIT+limit,
+        Mockito.when( restTemplate.exchange(BASE_URL_LOCALHOST_GPS+PATH_NEARBY_ATTRACTIONS+LATITUDE+latitude+LONGITUDE+longitude+LIMIT+limit,
                 HttpMethod.GET, null, new ParameterizedTypeReference<List<NearbyAttractionsDTO>>() {
                 })).thenReturn(new ResponseEntity<>(expected, HttpStatus.OK));
         result = gpsWebClient.getNearByAttractionsFromGps(latitude,longitude,limit);
@@ -75,7 +75,7 @@ class GpsWebClientTest {
         VisitedLocation expected = Data.getLastVisitedLocationOfUser();
         VisitedLocation result;
         //When
-        Mockito.when(restTemplate.getForEntity(BASE_URL_LOCALHOST_gps+PATH_USER_LOCATION+USER_ID+userId, VisitedLocation.class)).thenReturn(new ResponseEntity<>(expected, HttpStatus.OK));
+        Mockito.when(restTemplate.getForEntity(BASE_URL_LOCALHOST_GPS+PATH_USER_LOCATION+USER_ID+userId, VisitedLocation.class)).thenReturn(new ResponseEntity<>(expected, HttpStatus.OK));
         result = gpsWebClient.trackUserLocationFromGps(userId);
         //Then
         Assertions.assertEquals(expected,result);

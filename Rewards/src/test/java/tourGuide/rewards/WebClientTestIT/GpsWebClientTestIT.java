@@ -24,12 +24,12 @@ class GpsWebClientTestIT {
     GpsWebClient gpsWebClient = new GpsWebClient();
 
     //@Value("${tourguide.main.gpsurl}")
-    private String BASE_URL_LOCALHOST_gps = "http://localhost:8081/gps";
+    private String BASE_URL_LOCALHOST_GPS = "http://localhost:8081/gps";
     private final String PATH_GET_ALL_ATTRACTIONS = "/getAllAttractions";
 
     @BeforeEach
     void setUp() {
-        gpsWebClient.setBASE_URL_LOCALHOST_gps(BASE_URL_LOCALHOST_gps);
+        gpsWebClient.setBASE_URL_LOCALHOST_GPS(BASE_URL_LOCALHOST_GPS);
     }
 
     @Test
@@ -37,7 +37,7 @@ class GpsWebClientTestIT {
         //Given
         TestRestTemplate testRestTemplate = new TestRestTemplate();
         //When
-        ResponseEntity<List<Attraction>> response = testRestTemplate.exchange(BASE_URL_LOCALHOST_gps + PATH_GET_ALL_ATTRACTIONS,
+        ResponseEntity<List<Attraction>> response = testRestTemplate.exchange(BASE_URL_LOCALHOST_GPS + PATH_GET_ALL_ATTRACTIONS,
                 HttpMethod.GET, null, new ParameterizedTypeReference<List<Attraction>>() {
                 });
         //Then

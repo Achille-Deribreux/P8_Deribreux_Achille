@@ -26,7 +26,7 @@ class UserWebClientTest {
     UserWebClient userWebClient = new UserWebClient();
 
     //@Value("${tourguide.main.userurl}")
-    private String BASE_URL_LOCALHOST_user  = "http://localhost:8082/user";
+    private String BASE_URL_LOCALHOST_USER  = "http://localhost:8082/user";
 
 
     private final String PATH_ADD_USER_REWARD = "/addUserReward";
@@ -34,7 +34,7 @@ class UserWebClientTest {
 
     @BeforeEach
     void setUp() {
-        userWebClient.setBASE_URL_LOCALHOST_user(BASE_URL_LOCALHOST_user);
+        userWebClient.setBASE_URL_LOCALHOST_USER(BASE_URL_LOCALHOST_USER);
     }
 
     @Test
@@ -43,16 +43,16 @@ class UserWebClientTest {
         String userName = "username";
         UserReward userRewardToAdd = new UserReward();
         RequestEntity<UserReward> request = RequestEntity
-                .post(new URI(BASE_URL_LOCALHOST_user+PATH_ADD_USER_REWARD+USER_NAME+userName))
+                .post(new URI(BASE_URL_LOCALHOST_USER+PATH_ADD_USER_REWARD+USER_NAME+userName))
                 .accept(MediaType.APPLICATION_JSON)
                 .contentType(MediaType.APPLICATION_JSON)
                 .body(userRewardToAdd);
         //When
-        Mockito.when(restTemplate.exchange(BASE_URL_LOCALHOST_user+PATH_ADD_USER_REWARD+USER_NAME+userName,
+        Mockito.when(restTemplate.exchange(BASE_URL_LOCALHOST_USER+PATH_ADD_USER_REWARD+USER_NAME+userName,
                 HttpMethod.POST, request, void.class)).thenReturn(new ResponseEntity<>(HttpStatus.OK));
         userWebClient.addUserReward(userName,userRewardToAdd);
         //Then
-        Mockito.verify(restTemplate,Mockito.times(1)).exchange(BASE_URL_LOCALHOST_user+PATH_ADD_USER_REWARD+USER_NAME+userName,
+        Mockito.verify(restTemplate,Mockito.times(1)).exchange(BASE_URL_LOCALHOST_USER+PATH_ADD_USER_REWARD+USER_NAME+userName,
                 HttpMethod.POST, request, void.class);
     }
 }

@@ -35,7 +35,7 @@ public class UserWebClient {
     }
 
     //@Value("${tourguide.main.userurl}")
-    private String BASE_URL_LOCALHOST_user = "http://tourguide-users:8082/user";
+    private String BASE_URL_LOCALHOST_USER = "http://tourguide-users:8082/user";
     //Declare the path to userLocation
     private final String PATH_USER_LOCATION = "/getUserLocation";
     //Declare the path to getUser
@@ -53,8 +53,8 @@ public class UserWebClient {
 
     private Logger logger = LoggerFactory.getLogger(UserWebClient.class);
 
-    public void setBASE_URL_LOCALHOST_user(String BASE_URL_LOCALHOST_user) {
-        this.BASE_URL_LOCALHOST_user = BASE_URL_LOCALHOST_user;
+    public void setBASE_URL_LOCALHOST_USER(String BASE_URL_LOCALHOST_USER) {
+        this.BASE_URL_LOCALHOST_USER = BASE_URL_LOCALHOST_USER;
     }
 
     /**
@@ -64,7 +64,7 @@ public class UserWebClient {
      */
     public VisitedLocation getUserLocationFromUser(String userName) {
         logger.info("call the user app to get the location of user : "+userName);
-        ResponseEntity<VisitedLocation> result  = restTemplate.getForEntity(BASE_URL_LOCALHOST_user+PATH_USER_LOCATION+USER_NAME+userName, VisitedLocation.class);
+        ResponseEntity<VisitedLocation> result  = restTemplate.getForEntity(BASE_URL_LOCALHOST_USER+PATH_USER_LOCATION+USER_NAME+userName, VisitedLocation.class);
         return result.getBody();
     }
 
@@ -75,7 +75,7 @@ public class UserWebClient {
      */
     public User getUser(String userName) {
         logger.info("call the user app to get the user for username :"+userName);
-        ResponseEntity<UserDTO> result  = restTemplate.getForEntity(BASE_URL_LOCALHOST_user+PATH_GET_USER+USER_NAME+userName, UserDTO.class);
+        ResponseEntity<UserDTO> result  = restTemplate.getForEntity(BASE_URL_LOCALHOST_USER+PATH_GET_USER+USER_NAME+userName, UserDTO.class);
         return Mapper.convertUserDTOtoUser(result.getBody());
     }
 
@@ -85,9 +85,9 @@ public class UserWebClient {
      */
     public List<User> getAllUsers(){
         logger.info("call the user app to get all users");
-        logger.info(BASE_URL_LOCALHOST_user+PATH_GET_ALL_USERS);
+        logger.info(BASE_URL_LOCALHOST_USER+PATH_GET_ALL_USERS);
         ResponseEntity<List<UserDTO>> result  =
-                restTemplate.exchange(BASE_URL_LOCALHOST_user+PATH_GET_ALL_USERS,
+                restTemplate.exchange(BASE_URL_LOCALHOST_USER+PATH_GET_ALL_USERS,
                         HttpMethod.GET, null, new ParameterizedTypeReference<List<UserDTO>>() {
                         });
         return Mapper.convertToUserList(result.getBody());
@@ -100,7 +100,7 @@ public class UserWebClient {
     public Map<UUID, Location> getAllUsersWithLocation(){
         logger.info("call the user app to get all the users with their location");
         ResponseEntity<Map<UUID, Location>> result  =
-                restTemplate.exchange(BASE_URL_LOCALHOST_user+PATH_GET_ALL_USERS_WITH_LOCATION,
+                restTemplate.exchange(BASE_URL_LOCALHOST_USER+PATH_GET_ALL_USERS_WITH_LOCATION,
                         HttpMethod.GET, null, new ParameterizedTypeReference<Map<UUID, Location>>() {
                         });
         return result.getBody();
@@ -114,12 +114,12 @@ public class UserWebClient {
     public void addUserVisitedLocation(String userName, VisitedLocation lastVisitedLocation) throws URISyntaxException {
         logger.info("call the user app to add a visited location for user : "+userName);
         RequestEntity<VisitedLocation> request = RequestEntity
-                .post(new URI(BASE_URL_LOCALHOST_user+PATH_ADD_USER_VISITED_LOCATION+USER_NAME+userName))
+                .post(new URI(BASE_URL_LOCALHOST_USER+PATH_ADD_USER_VISITED_LOCATION+USER_NAME+userName))
                 .accept(MediaType.APPLICATION_JSON)
                 .contentType(MediaType.APPLICATION_JSON)
                 .body(lastVisitedLocation);
 
-                restTemplate.exchange(BASE_URL_LOCALHOST_user+PATH_ADD_USER_VISITED_LOCATION+USER_NAME+userName,
+                restTemplate.exchange(BASE_URL_LOCALHOST_USER+PATH_ADD_USER_VISITED_LOCATION+USER_NAME+userName,
                         HttpMethod.POST, request, String.class);
     }
 
@@ -131,12 +131,12 @@ public class UserWebClient {
     public void addUserPreferences(String userName, UserPreferencesDTO userPreferencesDTO) throws URISyntaxException {
         logger.info("call the user app to add a user preferences for user : "+userName);
         RequestEntity<UserPreferencesDTO> request = RequestEntity
-                .post(new URI(BASE_URL_LOCALHOST_user+PATH_ADD_USER_PREFERENCES+USER_NAME+userName))
+                .post(new URI(BASE_URL_LOCALHOST_USER+PATH_ADD_USER_PREFERENCES+USER_NAME+userName))
                 .accept(MediaType.APPLICATION_JSON)
                 .contentType(MediaType.APPLICATION_JSON)
                 .body(userPreferencesDTO);
 
-        restTemplate.exchange(BASE_URL_LOCALHOST_user+PATH_ADD_USER_PREFERENCES+USER_NAME+userName,
+        restTemplate.exchange(BASE_URL_LOCALHOST_USER+PATH_ADD_USER_PREFERENCES+USER_NAME+userName,
                 HttpMethod.POST, request, String.class);
     }
 }

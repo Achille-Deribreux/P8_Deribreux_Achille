@@ -22,12 +22,12 @@ public class GpsWebClient {
 
     // Declare the base url (for localhost)
     //@Value("${tourguide.main.gpsurl}")
-    private String BASE_URL_LOCALHOST_gps = "http://tourguide-gps:8081/gps";
+    private String BASE_URL_LOCALHOST_GPS = "http://tourguide-gps:8081/gps";
     //Declare the path to getAllAttractions
     private final String PATH_GET_ALL_ATTRACTIONS = "/getAllAttractions";
 
-    public void setBASE_URL_LOCALHOST_gps(String BASE_URL_LOCALHOST_gps) {
-        this.BASE_URL_LOCALHOST_gps = BASE_URL_LOCALHOST_gps;
+    public void setBASE_URL_LOCALHOST_GPS(String BASE_URL_LOCALHOST_GPS) {
+        this.BASE_URL_LOCALHOST_GPS = BASE_URL_LOCALHOST_GPS;
     }
 
     /**
@@ -37,7 +37,7 @@ public class GpsWebClient {
     public List<Attraction> getAllAttractions(){
         logger.info("get all the attractions from gps app");
         ResponseEntity<List<Attraction>> result  =
-                restTemplate.exchange(BASE_URL_LOCALHOST_gps+PATH_GET_ALL_ATTRACTIONS,
+                restTemplate.exchange(BASE_URL_LOCALHOST_GPS+PATH_GET_ALL_ATTRACTIONS,
                         HttpMethod.GET, null, new ParameterizedTypeReference<List<Attraction>>() {
                         });
         return result.getBody();

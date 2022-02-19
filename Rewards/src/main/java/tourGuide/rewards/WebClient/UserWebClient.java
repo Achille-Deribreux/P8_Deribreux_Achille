@@ -20,7 +20,7 @@ public class UserWebClient {
     private Logger logger = LoggerFactory.getLogger(UserWebClient.class);
 
     //@Value("${tourguide.main.userurl}")
-    private String BASE_URL_LOCALHOST_user = "http://tourguide-users:8082/user";
+    private String BASE_URL_LOCALHOST_USER = "http://tourguide-users:8082/user";
     //Declare the path to addUserReward
     private final String PATH_ADD_USER_REWARD = "/addUserReward";
     //Declare userName param
@@ -29,8 +29,8 @@ public class UserWebClient {
     @Autowired
     RestTemplate restTemplate;
 
-    public void setBASE_URL_LOCALHOST_user(String BASE_URL_LOCALHOST_user) {
-        this.BASE_URL_LOCALHOST_user = BASE_URL_LOCALHOST_user;
+    public void setBASE_URL_LOCALHOST_USER(String BASE_URL_LOCALHOST_USER) {
+        this.BASE_URL_LOCALHOST_USER = BASE_URL_LOCALHOST_USER;
     }
 
     /**
@@ -41,13 +41,13 @@ public class UserWebClient {
     public void addUserReward(String userName, UserReward userRewardToAdd) throws URISyntaxException {
         logger.info("add reward to user :"+userName);
         RequestEntity<UserReward> request = RequestEntity
-                .post(new URI(BASE_URL_LOCALHOST_user+PATH_ADD_USER_REWARD+USER_NAME+userName))
+                .post(new URI(BASE_URL_LOCALHOST_USER+PATH_ADD_USER_REWARD+USER_NAME+userName))
                 .accept(MediaType.APPLICATION_JSON)
                 .contentType(MediaType.APPLICATION_JSON)
                 .body(userRewardToAdd);
 
         ResponseEntity<Void> result  =
-                restTemplate.exchange(BASE_URL_LOCALHOST_user+PATH_ADD_USER_REWARD+USER_NAME+userName,
+                restTemplate.exchange(BASE_URL_LOCALHOST_USER+PATH_ADD_USER_REWARD+USER_NAME+userName,
                         HttpMethod.POST, request, void.class);
     }
 }

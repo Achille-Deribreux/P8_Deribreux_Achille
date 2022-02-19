@@ -30,7 +30,7 @@ class UserWebClientTestIT {
     UserWebClient userWebClient;
 
     //@Value("${tourguide.main.userurl}")
-    private String BASE_URL_LOCALHOST_user  = "http://localhost:8082/user";
+    private String BASE_URL_LOCALHOST_USER  = "http://localhost:8082/user";
     private final String PATH_USER_LOCATION = "/getUserLocation";
     private final String PATH_GET_USER = "/getUser";
     private final String PATH_GET_ALL_USERS = "/getAllUsers";
@@ -41,7 +41,7 @@ class UserWebClientTestIT {
 
     @BeforeEach
     void setUp() {
-        userWebClient.setBASE_URL_LOCALHOST_user(BASE_URL_LOCALHOST_user);
+        userWebClient.setBASE_URL_LOCALHOST_USER(BASE_URL_LOCALHOST_USER);
     }
 
     @Test
@@ -50,7 +50,7 @@ class UserWebClientTestIT {
         TestRestTemplate testRestTemplate = new TestRestTemplate();
         String userName = "internalUser1";
         //When
-        ResponseEntity<VisitedLocation> response = testRestTemplate.getForEntity(BASE_URL_LOCALHOST_user + PATH_USER_LOCATION + USER_NAME + userName, VisitedLocation.class);
+        ResponseEntity<VisitedLocation> response = testRestTemplate.getForEntity(BASE_URL_LOCALHOST_USER + PATH_USER_LOCATION + USER_NAME + userName, VisitedLocation.class);
         //Then
         Assertions.assertEquals(response.getStatusCode(), HttpStatus.OK);
     }
@@ -61,7 +61,7 @@ class UserWebClientTestIT {
         TestRestTemplate testRestTemplate = new TestRestTemplate();
         String userName = "internalUser1";
         //When
-        ResponseEntity<UserDTO> response = testRestTemplate.getForEntity(BASE_URL_LOCALHOST_user + PATH_GET_USER + USER_NAME + userName, UserDTO.class);
+        ResponseEntity<UserDTO> response = testRestTemplate.getForEntity(BASE_URL_LOCALHOST_USER + PATH_GET_USER + USER_NAME + userName, UserDTO.class);
         //Then
         Assertions.assertEquals(response.getStatusCode(), HttpStatus.OK);
     }
@@ -72,7 +72,7 @@ class UserWebClientTestIT {
         Map<UUID, Location> expected =  Data.getAllUsersWithLocation();
         TestRestTemplate testRestTemplate = new TestRestTemplate();
         //When
-        ResponseEntity<Map<UUID, Location>> response = testRestTemplate.exchange(BASE_URL_LOCALHOST_user + PATH_GET_ALL_USERS_WITH_LOCATION,
+        ResponseEntity<Map<UUID, Location>> response = testRestTemplate.exchange(BASE_URL_LOCALHOST_USER + PATH_GET_ALL_USERS_WITH_LOCATION,
                 HttpMethod.GET, null, new ParameterizedTypeReference<Map<UUID, Location>>() {
                 });
         //Then
@@ -86,12 +86,12 @@ class UserWebClientTestIT {
         VisitedLocation lastVisitedLocation = Data.getLastVisitedLocationOfUser();
         TestRestTemplate testRestTemplate = new TestRestTemplate();
         RequestEntity<VisitedLocation> request = RequestEntity
-                .post(new URI(BASE_URL_LOCALHOST_user+PATH_ADD_USER_VISITED_LOCATION+USER_NAME+userName))
+                .post(new URI(BASE_URL_LOCALHOST_USER+PATH_ADD_USER_VISITED_LOCATION+USER_NAME+userName))
                 .accept(MediaType.APPLICATION_JSON)
                 .contentType(MediaType.APPLICATION_JSON)
                 .body(lastVisitedLocation);
         //When
-        ResponseEntity<String> response = testRestTemplate.exchange(BASE_URL_LOCALHOST_user + PATH_ADD_USER_VISITED_LOCATION + USER_NAME + userName,
+        ResponseEntity<String> response = testRestTemplate.exchange(BASE_URL_LOCALHOST_USER + PATH_ADD_USER_VISITED_LOCATION + USER_NAME + userName,
                 HttpMethod.POST, request, String.class);
         //Then
         Assertions.assertEquals(response.getStatusCode(), HttpStatus.OK);
@@ -104,12 +104,12 @@ class UserWebClientTestIT {
         TestRestTemplate testRestTemplate = new TestRestTemplate();
         UserPreferencesDTO userPreferencesDTO = new UserPreferencesDTO();
         RequestEntity<UserPreferencesDTO> request = RequestEntity
-                .post(new URI(BASE_URL_LOCALHOST_user+PATH_ADD_USER_PREFERENCES+USER_NAME+userName))
+                .post(new URI(BASE_URL_LOCALHOST_USER+PATH_ADD_USER_PREFERENCES+USER_NAME+userName))
                 .accept(MediaType.APPLICATION_JSON)
                 .contentType(MediaType.APPLICATION_JSON)
                 .body(userPreferencesDTO);
         //When
-        ResponseEntity<String> response = testRestTemplate.exchange(BASE_URL_LOCALHOST_user + PATH_ADD_USER_PREFERENCES + USER_NAME + userName,
+        ResponseEntity<String> response = testRestTemplate.exchange(BASE_URL_LOCALHOST_USER + PATH_ADD_USER_PREFERENCES + USER_NAME + userName,
                 HttpMethod.POST, request, String.class);
         //Then
         Assertions.assertEquals(response.getStatusCode(), HttpStatus.OK);

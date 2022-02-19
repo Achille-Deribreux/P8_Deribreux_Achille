@@ -29,7 +29,7 @@ class PricerWebClientTest {
     PricerWebClient pricerWebClient = new PricerWebClient();
 
     //@Value("${tourguide.main.pricerurl}")
-    private String BASE_URL_LOCALHOST_pricer = "http://localhost:8084/pricer";
+    private String BASE_URL_LOCALHOST_PRICER = "http://localhost:8084/pricer";
     // Declare the path to calculateRewards
     private final String PATH_GET_TRIPDEALS = "/getTripDeals";
 
@@ -47,7 +47,7 @@ class PricerWebClientTest {
 
     @BeforeEach
     void setUp() {
-        pricerWebClient.setBASE_URL_LOCALHOST_pricer(BASE_URL_LOCALHOST_pricer);
+        pricerWebClient.setBASE_URL_LOCALHOST_PRICER(BASE_URL_LOCALHOST_PRICER);
     }
 
     @Test
@@ -63,7 +63,7 @@ class PricerWebClientTest {
         int rewardsPoints = 10;
         //When
         Mockito.when(restTemplate.exchange(
-                BASE_URL_LOCALHOST_pricer+PATH_GET_TRIPDEALS+
+                BASE_URL_LOCALHOST_PRICER+PATH_GET_TRIPDEALS+
                         PARAM_ATTRACTIONID+attractionId+
                         PARAM_USERNAME+username+
                         PARAM_ADULTS+adults+

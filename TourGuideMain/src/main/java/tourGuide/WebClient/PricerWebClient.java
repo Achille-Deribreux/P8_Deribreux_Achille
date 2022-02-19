@@ -27,7 +27,7 @@ public class PricerWebClient {
 
     // Declare the base url (for localhost)
     //@Value("${tourguide.main.pricerurl}")
-    private String BASE_URL_LOCALHOST_pricer = "http://tourguide-pricer:8084/pricer";
+    private String BASE_URL_LOCALHOST_PRICER = "http://tourguide-pricer:8084/pricer";
     // Declare the path to calculateRewards
     private final String PATH_GET_TRIPDEALS = "/getTripDeals";
 
@@ -45,8 +45,8 @@ public class PricerWebClient {
 
     private Logger logger = LoggerFactory.getLogger(PricerWebClient.class);
 
-    public void setBASE_URL_LOCALHOST_pricer(String BASE_URL_LOCALHOST_pricer) {
-        this.BASE_URL_LOCALHOST_pricer = BASE_URL_LOCALHOST_pricer;
+    public void setBASE_URL_LOCALHOST_PRICER(String BASE_URL_LOCALHOST_PRICER) {
+        this.BASE_URL_LOCALHOST_PRICER = BASE_URL_LOCALHOST_PRICER;
     }
 
     public void setRestTemplate(RestTemplate restTemplate) {
@@ -66,7 +66,7 @@ public class PricerWebClient {
     public List<Provider> generateTripDeals(UUID attractionId,String username, int adults, int children, int nightsStay, int rewardsPoints) {
         logger.info("call the pricer app to generate tripdeals for user : "+username);
         ResponseEntity<List<Provider>> result = restTemplate.exchange(
-                BASE_URL_LOCALHOST_pricer+PATH_GET_TRIPDEALS+
+                BASE_URL_LOCALHOST_PRICER+PATH_GET_TRIPDEALS+
                         PARAM_ATTRACTIONID+attractionId+
                         PARAM_USERNAME+username+
                         PARAM_ADULTS+adults+

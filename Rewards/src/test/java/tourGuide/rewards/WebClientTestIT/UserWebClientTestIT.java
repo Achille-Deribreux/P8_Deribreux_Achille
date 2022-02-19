@@ -27,13 +27,13 @@ class UserWebClientTestIT {
     UserWebClient userWebClient = new UserWebClient();
 
     //@Value("${tourguide.main.userurl}")
-    private String BASE_URL_LOCALHOST_user  = "http://localhost:8082/user";
+    private String BASE_URL_LOCALHOST_USER  = "http://localhost:8082/user";
     private final String PATH_ADD_USER_REWARD = "/addUserReward";
     private final String USER_NAME = "?userName=";
 
     @BeforeEach
     void setUp() {
-        userWebClient.setBASE_URL_LOCALHOST_user(BASE_URL_LOCALHOST_user);
+        userWebClient.setBASE_URL_LOCALHOST_USER(BASE_URL_LOCALHOST_USER);
     }
 
     @Test
@@ -43,12 +43,12 @@ class UserWebClientTestIT {
         String userName = "internalUser1";
         UserReward userRewardToAdd = new UserReward(new VisitedLocation(UUID.randomUUID(),new Location(10.0,10.0), Date.from(Instant.now())), Data.getJacksonAttraction(),1);
         RequestEntity<UserReward> request = RequestEntity
-                .post(new URI(BASE_URL_LOCALHOST_user+PATH_ADD_USER_REWARD+USER_NAME+userName))
+                .post(new URI(BASE_URL_LOCALHOST_USER+PATH_ADD_USER_REWARD+USER_NAME+userName))
                 .accept(MediaType.APPLICATION_JSON)
                 .contentType(MediaType.APPLICATION_JSON)
                 .body(userRewardToAdd);
         //When
-        ResponseEntity<String> response = testRestTemplate.exchange(BASE_URL_LOCALHOST_user + PATH_ADD_USER_REWARD + USER_NAME + userName,
+        ResponseEntity<String> response = testRestTemplate.exchange(BASE_URL_LOCALHOST_USER + PATH_ADD_USER_REWARD + USER_NAME + userName,
                 HttpMethod.POST, request, String.class);
         //Then
         Assertions.assertEquals(response.getStatusCode(),HttpStatus.OK);

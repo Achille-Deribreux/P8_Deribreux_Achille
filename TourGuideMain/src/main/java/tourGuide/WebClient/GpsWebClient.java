@@ -27,7 +27,7 @@ public class GpsWebClient {
 
     // Declare the base url (for localhost)
     //@Value("${tourguide.main.gpsurl}")
-    private String BASE_URL_LOCALHOST_gps = "http://tourguide-gps:8081/gps";
+    private String BASE_URL_LOCALHOST_GPS = "http://tourguide-gps:8081/gps";
     // Declare the path to attraction
     private final String PATH_NEARBY_ATTRACTIONS = "/getNearbyAttractions";
     //Declare the path to userLocation
@@ -43,8 +43,8 @@ public class GpsWebClient {
 
     private Logger logger = LoggerFactory.getLogger(GpsWebClient.class);
 
-    public void setBASE_URL_LOCALHOST_gps(String BASE_URL_LOCALHOST_gps) {
-        this.BASE_URL_LOCALHOST_gps = BASE_URL_LOCALHOST_gps;
+    public void setBASE_URL_LOCALHOST_GPS(String BASE_URL_LOCALHOST_GPS) {
+        this.BASE_URL_LOCALHOST_GPS = BASE_URL_LOCALHOST_GPS;
     }
 
 
@@ -59,7 +59,7 @@ public class GpsWebClient {
     public List<NearbyAttractionsDTO> getNearByAttractionsFromGps(double latitude, double longitude, Integer limit){
         logger.info("get nearby attractions from gps");
         ResponseEntity<List<NearbyAttractionsDTO>> result  =
-                restTemplate.exchange(BASE_URL_LOCALHOST_gps+PATH_NEARBY_ATTRACTIONS+LATITUDE+latitude+LONGITUDE+longitude+LIMIT+limit,
+                restTemplate.exchange(BASE_URL_LOCALHOST_GPS+PATH_NEARBY_ATTRACTIONS+LATITUDE+latitude+LONGITUDE+longitude+LIMIT+limit,
                         HttpMethod.GET, null, new ParameterizedTypeReference<List<NearbyAttractionsDTO>>() {});
         return result.getBody();
     }
@@ -71,7 +71,7 @@ public class GpsWebClient {
      */
     public VisitedLocation trackUserLocationFromGps(UUID userId){
         ResponseEntity<VisitedLocation> result  =
-                restTemplate.getForEntity(BASE_URL_LOCALHOST_gps+PATH_USER_LOCATION+USER_ID+userId, VisitedLocation.class);
+                restTemplate.getForEntity(BASE_URL_LOCALHOST_GPS+PATH_USER_LOCATION+USER_ID+userId, VisitedLocation.class);
         return result.getBody();
     }
 }

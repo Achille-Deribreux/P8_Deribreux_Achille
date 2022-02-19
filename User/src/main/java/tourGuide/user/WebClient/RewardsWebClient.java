@@ -22,15 +22,15 @@ public class RewardsWebClient {
     private final Logger logger = LoggerFactory.getLogger(RewardsWebClient.class);
 
     //@Value("${tourguide.main.rewardsurl}")
-    private String BASE_URL_LOCALHOST_rewards = "http://tourguide-rewards:8083/rewards";
+    private String BASE_URL_LOCALHOST_REWARDS = "http://tourguide-rewards:8083/rewards";
     // Declare the path to calculateRewards
     private final String PATH_CALCULATE_REWARDS = "/calculateRewards";
 
     @Autowired
     RestTemplate restTemplate;
 
-    public void setBASE_URL_LOCALHOST_rewards(String BASE_URL_LOCALHOST_rewards) {
-        this.BASE_URL_LOCALHOST_rewards = BASE_URL_LOCALHOST_rewards;
+    public void setBASE_URL_LOCALHOST_REWARDS(String BASE_URL_LOCALHOST_REWARDS) {
+        this.BASE_URL_LOCALHOST_REWARDS = BASE_URL_LOCALHOST_REWARDS;
     }
 
     /**
@@ -41,12 +41,12 @@ public class RewardsWebClient {
     public List<UserReward> calculateRewards(UserDTO userDTO) throws URISyntaxException {
         logger.info("send request to rewards app to calculate rewards for user :"+userDTO.getUserName());
         RequestEntity<UserDTO> request = RequestEntity
-                .post(new URI(BASE_URL_LOCALHOST_rewards+PATH_CALCULATE_REWARDS))
+                .post(new URI(BASE_URL_LOCALHOST_REWARDS+PATH_CALCULATE_REWARDS))
                 .accept(MediaType.APPLICATION_JSON)
                 .contentType(MediaType.APPLICATION_JSON)
                 .body(userDTO);
 
-        ResponseEntity<List<UserReward>> result = restTemplate.exchange(BASE_URL_LOCALHOST_rewards+PATH_CALCULATE_REWARDS, HttpMethod.POST,request,new ParameterizedTypeReference<List<UserReward>>() {});
+        ResponseEntity<List<UserReward>> result = restTemplate.exchange(BASE_URL_LOCALHOST_REWARDS+PATH_CALCULATE_REWARDS, HttpMethod.POST,request,new ParameterizedTypeReference<List<UserReward>>() {});
         return result.getBody();
     }
 }

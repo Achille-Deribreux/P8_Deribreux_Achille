@@ -30,12 +30,12 @@ class RewardsWebClientTest {
     RewardsWebClient rewardsWebClient;
 
     //@Value("${tourguide.main.rewardsurl}")
-    private String BASE_URL_LOCALHOST_rewards = "http://localhost:8083/rewards";
+    private String BASE_URL_LOCALHOST_REWARDS = "http://localhost:8083/rewards";
     private final String PATH_CALCULATE_REWARDS = "/calculateRewards";
 
     @BeforeEach
     void setUp() {
-        rewardsWebClient.setBASE_URL_LOCALHOST_rewards(BASE_URL_LOCALHOST_rewards);
+        rewardsWebClient.setBASE_URL_LOCALHOST_REWARDS(BASE_URL_LOCALHOST_REWARDS);
     }
 
     @Test
@@ -44,15 +44,15 @@ class RewardsWebClientTest {
         User user = Data.getUser1();
         UserDTO userDTO = Mapper.convertUserToUserDTO(user);
         RequestEntity<UserDTO> request = RequestEntity
-                .post(new URI(BASE_URL_LOCALHOST_rewards+PATH_CALCULATE_REWARDS))
+                .post(new URI(BASE_URL_LOCALHOST_REWARDS+PATH_CALCULATE_REWARDS))
                 .accept(MediaType.APPLICATION_JSON)
                 .contentType(MediaType.APPLICATION_JSON)
                 .body(userDTO);
         List<UserReward> expected = Data.getUser1().getUserRewards();
         //When
-        Mockito.when(restTemplate.exchange(BASE_URL_LOCALHOST_rewards+PATH_CALCULATE_REWARDS, HttpMethod.POST,request,new ParameterizedTypeReference<List<UserReward>>(){})).thenReturn(new ResponseEntity<>(HttpStatus.OK));
+        Mockito.when(restTemplate.exchange(BASE_URL_LOCALHOST_REWARDS+PATH_CALCULATE_REWARDS, HttpMethod.POST,request,new ParameterizedTypeReference<List<UserReward>>(){})).thenReturn(new ResponseEntity<>(HttpStatus.OK));
         rewardsWebClient.calculateRewards(user);
         //Then
-        Mockito.verify(restTemplate,Mockito.times(1)).exchange(BASE_URL_LOCALHOST_rewards+PATH_CALCULATE_REWARDS, HttpMethod.POST,request,new ParameterizedTypeReference<List<UserReward>>(){});
+        Mockito.verify(restTemplate,Mockito.times(1)).exchange(BASE_URL_LOCALHOST_REWARDS+PATH_CALCULATE_REWARDS, HttpMethod.POST,request,new ParameterizedTypeReference<List<UserReward>>(){});
     }
 }

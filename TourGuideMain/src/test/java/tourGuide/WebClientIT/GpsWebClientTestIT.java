@@ -30,7 +30,7 @@ class GpsWebClientTestIT {
 
     // Declare the base url (for localhost)
     //@Value("${tourguide.main.gpsurl}")
-    private String BASE_URL_LOCALHOST_gps = "http://localhost:8081/gps";
+    private String BASE_URL_LOCALHOST_GPS = "http://localhost:8081/gps";
     // Declare the path to attraction
     private final String PATH_NEARBY_ATTRACTIONS = "/getNearbyAttractions";
     //Declare the path to userLocation
@@ -46,7 +46,7 @@ class GpsWebClientTestIT {
 
     @BeforeEach
     void setUp() {
-        gpsWebClient.setBASE_URL_LOCALHOST_gps(BASE_URL_LOCALHOST_gps);
+        gpsWebClient.setBASE_URL_LOCALHOST_GPS(BASE_URL_LOCALHOST_GPS);
     }
 
     @Test
@@ -58,7 +58,7 @@ class GpsWebClientTestIT {
         TestRestTemplate testRestTemplate = new TestRestTemplate();
         List<NearbyAttractionsDTO> expected = Data.getFiveNearestLocations();
         //When
-        ResponseEntity<List<NearbyAttractionsDTO>> result = testRestTemplate.exchange(BASE_URL_LOCALHOST_gps + PATH_NEARBY_ATTRACTIONS + LATITUDE + latitude + LONGITUDE + longitude + LIMIT + limit,
+        ResponseEntity<List<NearbyAttractionsDTO>> result = testRestTemplate.exchange(BASE_URL_LOCALHOST_GPS + PATH_NEARBY_ATTRACTIONS + LATITUDE + latitude + LONGITUDE + longitude + LIMIT + limit,
                 HttpMethod.GET, null, new ParameterizedTypeReference<List<NearbyAttractionsDTO>>() {
                 });
         //Then
@@ -71,7 +71,7 @@ class GpsWebClientTestIT {
         UUID userId = UUID.fromString("648ed5ea-b766-4aee-a0b7-3686e166c977");
         TestRestTemplate testRestTemplate = new TestRestTemplate();
         //When
-        ResponseEntity<VisitedLocation> response  = testRestTemplate.getForEntity(BASE_URL_LOCALHOST_gps+PATH_USER_LOCATION+USER_ID+userId, VisitedLocation.class);
+        ResponseEntity<VisitedLocation> response  = testRestTemplate.getForEntity(BASE_URL_LOCALHOST_GPS+PATH_USER_LOCATION+USER_ID+userId, VisitedLocation.class);
         //Then
         Assertions.assertEquals(response.getStatusCode(), HttpStatus.OK);
     }
