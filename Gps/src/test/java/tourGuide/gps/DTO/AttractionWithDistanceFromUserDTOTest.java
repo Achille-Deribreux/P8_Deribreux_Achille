@@ -1,9 +1,10 @@
 package tourGuide.gps.DTO;
 
+import com.con.DTO.AttractionWithDistanceFromUserDTO;
+import com.con.Entity.Attraction;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
-import tourGuide.gps.Entity.Attraction;
 
 @SpringBootTest
 class AttractionWithDistanceFromUserDTOTest {

@@ -31,8 +31,8 @@ public class TestUtils {
                             attraction.city,
                             attraction.state,
                             attraction.attractionId,
-                            attraction.latitude,
-                            attraction.longitude
+                            attraction.longitude,
+                            attraction.latitude
                     )
             );
         }
@@ -51,8 +51,7 @@ public class TestUtils {
                 "Anchorage",
                 "AK",
                 UUID.fromString("203873ae-3673-4389-a76d-75ddc49f0eab"),
-                61.218887,
-                -149.877502),
+                -149.877502,61.218887),
                 location,
                 737.1848933242989,
                 1)
@@ -63,8 +62,7 @@ public class TestUtils {
                 "Jackson Hole",
                 "WY",
                 UUID.fromString("9ccdd0bf-83d8-4cd6-bb29-022e0463a049"),
-                43.582767,
-                -110.821999),
+                -110.821999,43.582767),
                 location,
                 2736.665927044635,
                 1)
@@ -75,8 +73,8 @@ public class TestUtils {
                 "Kelso",
                 "CA",
                 UUID.fromString("0712fb6d-e22c-4936-9e32-8144095af7fc"),
-                35.141689,
-                -115.510399),
+
+                -115.510399,35.141689),
                 location,
                 3056.832920733511,
                 1)
@@ -87,8 +85,7 @@ public class TestUtils {
                 "Anaheim",
                 "CA",
                 UUID.fromString("770b82d4-2c78-4214-b320-324a55f3822f"),
-                33.817595,
-                -117.922008),
+                -117.922008,33.817595),
                 location,
                 3058.485830744802,
                 1)
@@ -99,8 +96,7 @@ public class TestUtils {
                "Joshua Tree National Park",
                 "CA",
                 UUID.fromString("f9a2cb62-dee7-4851-a7ae-131f7b0eca93"),
-                33.881866,
-                -115.90065),
+                -115.90065,33.881866),
                 location,
                 3117.438569890783,
                 1)

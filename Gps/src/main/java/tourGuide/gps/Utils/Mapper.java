@@ -17,8 +17,8 @@ public class Mapper {
                 attractionToMap.city,
                 attractionToMap.state,
                 attractionToMap.attractionId,
-                attractionToMap.latitude,
-                attractionToMap.longitude
+                attractionToMap.longitude,
+                attractionToMap.latitude
         );
     }
 }

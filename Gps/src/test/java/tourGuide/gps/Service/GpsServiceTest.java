@@ -64,7 +64,7 @@ class GpsServiceTest {
     @Test
     void getAttractionListWithDistanceFromUserTest() {
         //Given
-        Location location = new Location(7.5381817317681765,117.45241599562848);
+        Location location = new Location(117.45241599562848,7.5381817317681765);
         List<AttractionWithDistanceFromUserDTO> expected = new ArrayList<>();
         List<AttractionWithDistanceFromUserDTO> result;
 

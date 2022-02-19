@@ -1,5 +1,6 @@
 package tourGuide.gps.Controller;
 
+import com.con.DTO.NearbyAttractionsDTO;
 import gpsUtil.location.Attraction;
 import gpsUtil.location.VisitedLocation;
 import org.slf4j.Logger;
@@ -9,7 +10,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import tourGuide.gps.DTO.NearbyAttractionsDTO;
 import tourGuide.gps.Service.GpsService;
 import tourGuide.gps.Utils.DistanceCalculator;
 
@@ -44,7 +44,7 @@ public class GpsController {
      * @return a list of the nearest Attractions, based on the user's position
      */
     @GetMapping("/getNearbyAttractions")
-    public List<NearbyAttractionsDTO> getNearbyAttractions(@RequestParam(value="latitude")Double latitude,@RequestParam(value="longitude")Double longitude, @RequestParam(value="limit")Integer limit){
+    public List<NearbyAttractionsDTO> getNearbyAttractions(@RequestParam(value="latitude")Double latitude, @RequestParam(value="longitude")Double longitude, @RequestParam(value="limit")Integer limit){
         logger.info("request at /getNearbyAttractions with latitude : "+latitude+" and longitude "+longitude);
         return gpsService.getNearByAttractions(latitude, longitude, limit);
     }
