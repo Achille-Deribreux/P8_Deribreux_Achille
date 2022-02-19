@@ -13,7 +13,7 @@ import java.time.ZonedDateTime;
 @ControllerAdvice
 public class ExceptionsHandler {
 
-    private Logger logger = LoggerFactory.getLogger(ExceptionsHandler.class);
+    private final Logger logger = LoggerFactory.getLogger(ExceptionsHandler.class);
 
     @ExceptionHandler(UserNotFoundException.class)
     public ResponseEntity<Object> handleBidListNotFoundException(UserNotFoundException e){

@@ -19,10 +19,10 @@ import java.util.UUID;
 @RequestMapping("/user")
 public class UserController {
 
-    private Logger logger = LoggerFactory.getLogger(UserController.class);
+    private final Logger logger = LoggerFactory.getLogger(UserController.class);
 
     @Autowired
-    UserService userService;
+    private UserService userService;
 
     /**
      * This method answer to a get request at /getUserLocation and returns the location of the user

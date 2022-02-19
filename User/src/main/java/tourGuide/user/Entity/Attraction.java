@@ -1,23 +1,14 @@
 package tourGuide.user.Entity;
 
-import lombok.*;
-
 import java.util.Objects;
 import java.util.UUID;
 
 
 public class Attraction {
-     UUID attractionId;
-     String attractionName;
-     String city;
-     String state;
-
-     public Attraction(UUID attractionId, String attractionName, String city, String state) {
-          this.attractionId = attractionId;
-          this.attractionName = attractionName;
-          this.city = city;
-          this.state = state;
-     }
+     private UUID attractionId;
+     private String attractionName;
+     private String city;
+     private String state;
 
      public Attraction() {
      }

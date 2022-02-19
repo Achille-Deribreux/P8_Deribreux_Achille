@@ -5,8 +5,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import tourGuide.user.Controller.UserController;
-import tourGuide.user.DTO.UserDTO;
 import tourGuide.user.Entity.*;
 import tourGuide.user.Repository.UserRepository;
 import tourGuide.user.Utils.Mapper;
@@ -14,7 +12,6 @@ import tourGuide.user.WebClient.GpsWebClient;
 import tourGuide.user.WebClient.RewardsWebClient;
 
 import java.net.URISyntaxException;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.UUID;
@@ -26,13 +23,13 @@ public class UserService {
     private Logger logger = LoggerFactory.getLogger(UserService.class);
 
     @Autowired
-    UserRepository userRepository;
+    private UserRepository userRepository;
 
     @Autowired
-    GpsWebClient gpsWebClient;
+    private GpsWebClient gpsWebClient;
 
     @Autowired
-    RewardsWebClient rewardsWebClient;
+    private RewardsWebClient rewardsWebClient;
 
     public void setUserRepository(UserRepository userRepository) {
         this.userRepository = userRepository;

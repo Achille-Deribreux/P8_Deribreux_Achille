@@ -6,9 +6,10 @@ import java.util.Objects;
 
 
 public class UserReward {
-     VisitedLocation visitedLocation;
-     Attraction attraction;
-     int rewardPoints;
+
+     private VisitedLocation visitedLocation;
+     private Attraction attraction;
+     private int rewardPoints;
 
      public UserReward() {
      }

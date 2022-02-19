@@ -23,18 +23,6 @@ public class UserDTO {
     public UserDTO() {
     }
 
-    public UserDTO(UUID userId, String userName, String phoneNumber, String emailAddress, Date latestLocationTimestamp, List<VisitedLocation> visitedLocations, List<UserReward> userRewards, List<Provider> tripDeals, UserPreferencesDTO userPreferences) {
-        this.userId = userId;
-        this.userName = userName;
-        this.phoneNumber = phoneNumber;
-        this.emailAddress = emailAddress;
-        this.latestLocationTimestamp = latestLocationTimestamp;
-        this.visitedLocations = visitedLocations;
-        this.userRewards = userRewards;
-        this.tripDeals = tripDeals;
-        this.userPreferences = userPreferences;
-    }
-
     public UUID getUserId() {
         return userId;
     }

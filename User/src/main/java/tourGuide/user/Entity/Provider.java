@@ -1,15 +1,13 @@
 package tourGuide.user.Entity;
 
-import lombok.*;
-
 import java.util.Objects;
 import java.util.UUID;
 
 
 public class Provider {
-    public  String name;
-    public  double price;
-    public  UUID tripId;
+    private  String name;
+    private  double price;
+    private  UUID tripId;
 
     public Provider(String name, double price, UUID tripId) {
         this.name = name;

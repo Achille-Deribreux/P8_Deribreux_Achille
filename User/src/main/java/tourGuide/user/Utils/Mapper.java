@@ -14,6 +14,9 @@ import static java.lang.Integer.parseInt;
 
 public class Mapper {
 
+    private Mapper() {
+    }
+
     /**
      * Method who converts UserPreferences into userPreferencesDTO
      * @param userPreferences userPreferences to convert

@@ -3,7 +3,6 @@ package tourGuide.user.WebClient;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
@@ -15,9 +14,9 @@ import java.util.UUID;
 public class GpsWebClient {
 
     @Autowired
-    RestTemplate restTemplate;
+    private RestTemplate restTemplate;
 
-    private Logger logger = LoggerFactory.getLogger(GpsWebClient.class);
+    private final Logger logger = LoggerFactory.getLogger(GpsWebClient.class);
 
     //@Value("${tourguide.main.gpsurl}")
     private String BASE_URL_LOCALHOST_gps = "http://tourguide-gps:8081/gps";

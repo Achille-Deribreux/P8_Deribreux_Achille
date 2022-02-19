@@ -22,7 +22,7 @@ import java.net.URISyntaxException;
 import java.util.List;
 
 @SpringBootTest
-public class RewardsWebClientTest {
+class RewardsWebClientTest {
 
     @Mock
     RestTemplate restTemplate;

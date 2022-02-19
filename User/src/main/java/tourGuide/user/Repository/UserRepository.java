@@ -107,8 +107,8 @@ public class UserRepository {
      *
      **********************************************************************************/
 
-    boolean testMode = true;
-    Map<String, User> internalUserMap = new HashMap<>();
+    private boolean testMode = true;
+    private Map<String, User> internalUserMap = new HashMap<>();
     private Logger logger = LoggerFactory.getLogger(UserRepository.class);
     private static int internalUserNumber = 100000;
 

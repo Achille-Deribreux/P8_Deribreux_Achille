@@ -1,9 +1,6 @@
 package tourGuide.user.DTO;
 
 
-import javax.money.CurrencyUnit;
-import javax.money.Monetary;
-
 public class UserPreferencesDTO {
     private int attractionProximity = Integer.MAX_VALUE;
     private String currency ="USD";
@@ -15,17 +12,7 @@ public class UserPreferencesDTO {
     private int numberOfChildren = 0;
 
     public UserPreferencesDTO() {
-    }
-
-    public UserPreferencesDTO(int attractionProximity, String currency, int lowerPricePoint, int highPricePoint, int tripDuration, int ticketQuantity, int numberOfAdults, int numberOfChildren) {
-        this.attractionProximity = attractionProximity;
-        this.currency = currency;
-        this.lowerPricePoint = lowerPricePoint;
-        this.highPricePoint = highPricePoint;
-        this.tripDuration = tripDuration;
-        this.ticketQuantity = ticketQuantity;
-        this.numberOfAdults = numberOfAdults;
-        this.numberOfChildren = numberOfChildren;
+        //Empty constructor
     }
 
     public int getAttractionProximity() {
