@@ -34,8 +34,8 @@ public class UserWebClient {
         this.restTemplate = restTemplate;
     }
 
-    //@Value("${tourguide.main.userurl}")
-    private String BASE_URL_LOCALHOST_USER = "http://tourguide-users:8082/user";
+    @Value("${tourguide.main.userurl}")
+    private String BASE_URL_LOCALHOST_USER;
     //Declare the path to userLocation
     private final String PATH_USER_LOCATION = "/getUserLocation";
     //Declare the path to getUser

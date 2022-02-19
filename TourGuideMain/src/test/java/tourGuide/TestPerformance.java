@@ -7,16 +7,16 @@ import java.util.List;
 import java.util.concurrent.*;
 
 import org.apache.commons.lang3.time.StopWatch;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
+import org.junit.runner.RunWith;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.web.client.RestTemplate;
-import tourGuide.Configuration.Config;
 import tourGuide.WebClient.GpsWebClient;
 import tourGuide.WebClient.PricerWebClient;
 import tourGuide.WebClient.RewardsWebClient;
@@ -24,21 +24,24 @@ import tourGuide.WebClient.UserWebClient;
 import tourGuide.service.TourGuideService;
 import tourGuide.Entity.User;
 
+@RunWith(SpringJUnit4ClassRunner.class)
 @SpringBootTest
 class TestPerformance {
-	private Logger logger = LoggerFactory.getLogger(TestPerformance.class);
+	private final Logger logger = LoggerFactory.getLogger(TestPerformance.class);
 
-	//@Value("${tourguide.main.userurl}")
-	private String BASE_URL_LOCALHOST_user  = "http://localhost:8082/user";
+	@Value("${tourguide.main.userurl}")
+	private String BASE_URL_LOCALHOST_user;
 
-	//@Value("${tourguide.main.gpsurl}")
-	private String BASE_URL_LOCALHOST_gps = "http://localhost:8081/gps";
+	@Value("${tourguide.main.gpsurl}")
+	private String BASE_URL_LOCALHOST_gps;
 
-	//@Value("${tourguide.main.rewardsurl}")
-	private String BASE_URL_LOCALHOST_rewards = "http://localhost:8083/rewards";
+	@Value("${tourguide.main.rewardsurl}")
+	private String BASE_URL_LOCALHOST_rewards;
 
-	//@Value("${tourguide.main.pricerurl}")
-	private String BASE_URL_LOCALHOST_pricer = "http://localhost:8084/pricer";
+	@Value("${tourguide.main.pricerurl}")
+	private String BASE_URL_LOCALHOST_pricer;
+
+
 	/*
 	 * A note on performance improvements:
 	 *     
@@ -58,6 +61,14 @@ class TestPerformance {
      *     highVolumeGetRewards: 100,000 users within 20 minutes:
 	 *          assertTrue(TimeUnit.MINUTES.toSeconds(20) >= TimeUnit.MILLISECONDS.toSeconds(stopWatch.getTime()));
 	 */
+
+	@BeforeAll
+	static void setUp() {
+		System.setProperty("GPS_URL","http://localhost:8081/gps");
+		System.setProperty("PRICER_URL","http://localhost:8084/pricer");
+		System.setProperty("REWARD_URL","http://localhost:8083/rewards");
+		System.setProperty("USER_URL","http://localhost:8082/user");
+	}
 
 	@Test
 	public void highVolumeTrackLocation() throws ExecutionException, InterruptedException, URISyntaxException {

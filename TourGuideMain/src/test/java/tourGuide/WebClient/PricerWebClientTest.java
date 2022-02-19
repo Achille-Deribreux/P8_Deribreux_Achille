@@ -1,6 +1,7 @@
 package tourGuide.WebClient;
 
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
@@ -28,8 +29,8 @@ class PricerWebClientTest {
     @InjectMocks
     PricerWebClient pricerWebClient = new PricerWebClient();
 
-    //@Value("${tourguide.main.pricerurl}")
-    private String BASE_URL_LOCALHOST_PRICER = "http://localhost:8084/pricer";
+    @Value("${tourguide.main.pricerurl}")
+    private String BASE_URL_LOCALHOST_PRICER;
     // Declare the path to calculateRewards
     private final String PATH_GET_TRIPDEALS = "/getTripDeals";
 
@@ -44,6 +45,14 @@ class PricerWebClientTest {
     private final String PARAM_NIGHTSSTAY = "&nightsStay=";
 
     private final String PARAM_REWARDS_POINTS = "&rewardsPoints=";
+
+    @BeforeAll
+    static void setUpBeforeAll() {
+        System.setProperty("GPS_URL","http://localhost:8081/gps");
+        System.setProperty("PRICER_URL","http://localhost:8084/pricer");
+        System.setProperty("REWARD_URL","http://localhost:8083/rewards");
+        System.setProperty("USER_URL","http://localhost:8082/user");
+    }
 
     @BeforeEach
     void setUp() {

@@ -29,8 +29,8 @@ public class RewardsWebClient {
         this.restTemplate = restTemplate;
     }
 
-    //@Value("${tourguide.main.rewardsurl}")
-    private String BASE_URL_LOCALHOST_REWARDS = "http://tourguide-rewards:8083/rewards";
+    @Value("${tourguide.main.rewardsurl}")
+    private String BASE_URL_LOCALHOST_REWARDS;
     // Declare the path to calculateRewards
     private final String PATH_CALCULATE_REWARDS = "/calculateRewards";
 

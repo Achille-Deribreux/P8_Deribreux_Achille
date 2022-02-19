@@ -26,8 +26,8 @@ public class PricerWebClient {
     private RestTemplate restTemplate;
 
     // Declare the base url (for localhost)
-    //@Value("${tourguide.main.pricerurl}")
-    private String BASE_URL_LOCALHOST_PRICER = "http://tourguide-pricer:8084/pricer";
+    @Value("${tourguide.main.pricerurl}")
+    private String BASE_URL_LOCALHOST_PRICER;
     // Declare the path to calculateRewards
     private final String PATH_GET_TRIPDEALS = "/getTripDeals";
 

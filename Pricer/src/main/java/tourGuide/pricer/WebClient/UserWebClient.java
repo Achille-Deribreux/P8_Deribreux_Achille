@@ -3,6 +3,7 @@ package tourGuide.pricer.WebClient;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
 import org.springframework.http.RequestEntity;
@@ -18,8 +19,8 @@ import java.util.List;
 public class UserWebClient {
     private final Logger logger = LoggerFactory.getLogger(UserWebClient.class);
 
-    //@Value("${tourguide.main.userurl}")
-    private String BASE_URL_LOCALHOST_USER = "http://tourguide-users:8082/user";
+    @Value("${tourguide.main.userurl}")
+    private String BASE_URL_LOCALHOST_USER;
 
     private final String USER_NAME = "?userName=";
     private final String PATH_ADD_USER_TRIPDEALS = "/addTripDeals";

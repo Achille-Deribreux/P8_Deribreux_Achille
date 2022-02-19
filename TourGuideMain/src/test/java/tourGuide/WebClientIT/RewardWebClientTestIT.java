@@ -1,6 +1,7 @@
 package tourGuide.WebClientIT;
 
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
@@ -31,11 +32,20 @@ class RewardWebClientTestIT {
     @Autowired
     UserWebClient userWebClient;
 
-    //@Value("${tourguide.main.rewardsurl}")
-    private String BASE_URL_LOCALHOST_REWARDS = "http://localhost:8083/rewards";
-    //@Value("${tourguide.main.userurl}")
-    private String BASE_URL_LOCALHOST_user  = "http://localhost:8082/user";
+    @Value("${tourguide.main.rewardsurl}")
+    private String BASE_URL_LOCALHOST_REWARDS;
+    @Value("${tourguide.main.userurl}")
+    private String BASE_URL_LOCALHOST_user;
     private final String PATH_CALCULATE_REWARDS = "/calculateRewards";
+
+    @BeforeAll
+    static void setUpBeforeAll() {
+        System.setProperty("GPS_URL","http://localhost:8081/gps");
+        System.setProperty("PRICER_URL","http://localhost:8084/pricer");
+        System.setProperty("REWARD_URL","http://localhost:8083/rewards");
+        System.setProperty("USER_URL","http://localhost:8082/user");
+    }
+
 
     @BeforeEach
     void setUp() {

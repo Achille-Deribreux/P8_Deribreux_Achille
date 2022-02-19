@@ -26,8 +26,8 @@ public class GpsWebClient {
     }
 
     // Declare the base url (for localhost)
-    //@Value("${tourguide.main.gpsurl}")
-    private String BASE_URL_LOCALHOST_GPS = "http://tourguide-gps:8081/gps";
+    @Value("${tourguide.main.gpsurl}")
+    private String BASE_URL_LOCALHOST_GPS;
     // Declare the path to attraction
     private final String PATH_NEARBY_ATTRACTIONS = "/getNearbyAttractions";
     //Declare the path to userLocation
