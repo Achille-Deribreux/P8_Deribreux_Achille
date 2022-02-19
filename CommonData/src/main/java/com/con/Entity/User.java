@@ -96,6 +96,20 @@ public class User {
 		this.tripDeals = tripDeals;
 	}
 
+	public void addToVisitedLocations(VisitedLocation visitedLocation) {
+		visitedLocations.add(visitedLocation);
+	}
+
+	public void addUserReward(UserReward userReward) {
+		if(userRewards.stream().filter(r -> !r.getAttraction().getAttractionName().equals(userReward.getAttraction())).count() == 0) {
+			userRewards.add(userReward);
+		}
+	}
+
+	public VisitedLocation getLastVisitedLocation() {
+		return visitedLocations.get(visitedLocations.size() - 1);
+	}
+
 	@Override
 	public boolean equals(Object o) {
 		if (this == o) return true;

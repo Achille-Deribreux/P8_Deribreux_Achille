@@ -14,7 +14,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.RestTemplate;
-import tourGuide.user.Entity.VisitedLocation;
+import com.con.Entity.VisitedLocation;
 import tourGuide.user.Utils.Data;
 
 import java.util.UUID;

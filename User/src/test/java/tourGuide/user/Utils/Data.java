@@ -1,10 +1,7 @@
 package tourGuide.user.Utils;
 
 import org.javamoney.moneta.Money;
-import tourGuide.user.Entity.Location;
-import tourGuide.user.Entity.User;
-import tourGuide.user.Entity.UserPreferences;
-import tourGuide.user.Entity.VisitedLocation;
+import com.con.Entity.*;
 
 import javax.money.CurrencyUnit;
 import javax.money.Monetary;

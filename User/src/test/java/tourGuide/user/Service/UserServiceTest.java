@@ -7,7 +7,7 @@ import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
-import tourGuide.user.Entity.*;
+import com.con.Entity.*;
 import tourGuide.user.Repository.UserRepository;
 import tourGuide.user.Utils.Data;
 import tourGuide.user.Utils.Mapper;

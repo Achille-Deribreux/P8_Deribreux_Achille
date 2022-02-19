@@ -5,7 +5,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import tourGuide.user.Entity.*;
+import com.con.Entity.*;
 import tourGuide.user.Repository.UserRepository;
 import tourGuide.user.Utils.Mapper;
 import tourGuide.user.WebClient.GpsWebClient;

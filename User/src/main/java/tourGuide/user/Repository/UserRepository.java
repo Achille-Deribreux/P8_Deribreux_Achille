@@ -4,7 +4,7 @@ import org.javamoney.moneta.Money;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Repository;
-import tourGuide.user.Entity.*;
+import com.con.Entity.*;
 import tourGuide.user.Exceptions.UserNotFoundException;
 
 import javax.annotation.PostConstruct;

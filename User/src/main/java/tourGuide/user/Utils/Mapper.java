@@ -1,10 +1,8 @@
 package tourGuide.user.Utils;
 
 import org.javamoney.moneta.Money;
-import tourGuide.user.DTO.UserDTO;
-import tourGuide.user.DTO.UserPreferencesDTO;
-import tourGuide.user.Entity.User;
-import tourGuide.user.Entity.UserPreferences;
+import com.con.Entity.*;
+import com.con.DTO.*;
 
 import javax.money.Monetary;
 import java.util.ArrayList;
@@ -45,7 +43,6 @@ public class Mapper {
        userDTO.setUserName(user.getUserName());
        userDTO.setPhoneNumber(user.getPhoneNumber());
        userDTO.setEmailAddress(user.getEmailAddress());
-       userDTO.getLatestLocationTimestamp(user.getLatestLocationTimestamp());
        userDTO.setUserPreferences(userPreferencesMapper(user.getUserPreferences()));
        userDTO.setVisitedLocations(user.getVisitedLocations());
        userDTO.setUserRewards(user.getUserRewards());
